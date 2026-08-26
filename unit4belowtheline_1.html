@@ -1,0 +1,2578 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<base target="_blank">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="description" content="Learn with Dinesh Sir. Unit IV: Below-the-Line Tools: Sales Promotion, PR and Experiential Marketing. For working marketing professionals.">
+<title>Unit IV: Below-the-Line Tools | Learn with Dinesh Sir</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --maroon:#6B1E23;
+  --maroon-deep:#4A1216;
+  --maroon-soft:#8A2E34;
+  --mustard:#D4A017;
+  --mustard-light:#E0A93A;
+  --mustard-pale:#F3D98B;
+  --cream:#FBF6ED;
+  --cream-deep:#F5EDE0;
+  --ink:#2E1B16;
+  --ink-soft:#5C4438;
+  --ok:#2E7D4F;
+  --warn:#B3541E;
+  --shadow:0 6px 18px rgba(75,18,22,.10);
+  --shadow-lift:0 14px 30px rgba(75,18,22,.18);
+  --radius:16px;
+}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;overflow-x:hidden;overflow-x:clip;}
+body{
+  font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+  background:var(--cream);
+  color:var(--ink);
+  line-height:1.65;
+}
+h1,h2,h3,h4,.serif{font-family:Georgia,'Times New Roman',serif;}
+img,svg,canvas{max-width:100%;}
+button{font-family:inherit;cursor:pointer;touch-action:manipulation;}
+button,.chip,.pill,.acc-head,.preset,.tab{min-height:44px;}
+input,select,textarea{font-family:inherit;font-size:16px;}
+::selection{background:var(--mustard-pale);}
+
+/* ---------- Progress bar (sticky, stacks above nav; never fixed) ---------- */
+#progressWrap{
+  position:-webkit-sticky;position:sticky;left:0;right:0;top:0;z-index:1000;
+  background:rgba(75,18,22,.25);
+  height:4px;
+  pointer-events:none;
+}
+#progressBar{
+  height:4px;width:0%;
+  background:linear-gradient(90deg,var(--maroon) 0%,var(--mustard) 100%);
+  transition:width .1s linear;
+}
+
+/* ---------- Sticky nav (stacks 5px below the progress bar) ---------- */
+#topnav{
+  position:-webkit-sticky;position:sticky;
+  top:4px;
+  z-index:900;
+  background:rgba(251,246,237,.92);
+  -webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);
+  border-bottom:1px solid rgba(212,160,23,.35);
+  padding:6px max(12px,env(safe-area-inset-left,0px)) 6px max(12px,env(safe-area-inset-right,0px));
+  display:flex;align-items:center;gap:12px;
+}
+.fsBtn{
+  flex-shrink:0;width:46px;height:46px;min-width:46px;min-height:46px;
+  border-radius:12px;border:1.5px solid rgba(107,30,35,.3);
+  background:var(--cream-deep);color:var(--maroon);
+  font-size:18px;display:flex;align-items:center;justify-content:center;
+  transition:background .15s ease;
+}
+.fsBtn:hover,.fsBtn:active{background:var(--mustard-pale)}
+@media(max-width:560px){#topBtn{display:none}}
+/* Compact hero so the title, the hours line and the first call to action all
+   sit inside the first 600px of a short Google Sites embed window. */
+.navlogo{
+  display:flex;align-items:center;gap:10px;text-decoration:none;flex-shrink:0;
+  min-height:44px;
+}
+.logobadge{
+  width:44px;height:44px;border-radius:50%;
+  background:radial-gradient(circle at 32% 28%,var(--maroon-soft),var(--maroon) 60%,var(--maroon-deep));
+  color:var(--mustard-light);
+  display:flex;align-items:center;justify-content:center;
+  font-family:Georgia,serif;font-size:24px;font-weight:700;
+  border:2px solid var(--mustard);
+  box-shadow:0 3px 10px rgba(75,18,22,.35);
+  transition:transform .25s ease;
+}
+.navlogo:hover .logobadge,.navlogo:active .logobadge{transform:rotate(-8deg) scale(1.06);}
+.navname{font-family:Georgia,serif;color:var(--maroon);font-weight:700;font-size:15px;line-height:1.2;}
+.navname small{display:block;font-family:'Inter',sans-serif;font-weight:600;color:var(--ink-soft);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;}
+#navlinks{
+  display:flex;gap:6px;margin-left:auto;
+  overflow-x:auto;-webkit-overflow-scrolling:touch;
+  scroll-snap-type:x proximity;
+  scrollbar-width:none;
+}
+#navlinks::-webkit-scrollbar{display:none;}
+.pill{
+  scroll-snap-align:center;
+  display:inline-flex;align-items:center;
+  padding:9px 15px;border-radius:999px;
+  font-size:13.5px;font-weight:600;color:var(--maroon);
+  background:transparent;border:1.5px solid transparent;
+  text-decoration:none;white-space:nowrap;
+  transition:background .25s ease,color .25s ease,border-color .25s ease,transform .2s ease;
+}
+.pill:hover{background:var(--cream-deep);transform:translateY(-1px);}
+.pill.active{background:var(--mustard);color:var(--maroon-deep);border-color:var(--mustard);box-shadow:0 3px 9px rgba(212,160,23,.4);}
+
+/* ---------- Hero ---------- */
+#hero{
+  min-height:430px;
+  display:flex;align-items:center;justify-content:center;text-align:center;
+  position:relative;overflow:hidden;
+  padding:36px 20px 46px;
+  background:linear-gradient(130deg,var(--maroon-deep),var(--maroon) 34%,#7d2b1f 55%,var(--mustard) 130%);
+  background-size:220% 220%;
+  animation:heroShift 14s ease-in-out infinite alternate;
+}
+@keyframes heroShift{0%{background-position:0% 30%;}100%{background-position:100% 70%;}}
+#hero::after{
+  content:"द";
+  position:absolute;right:-4%;bottom:-14%;
+  font-family:Georgia,serif;font-size:min(52vw,420px);
+  color:rgba(224,169,58,.09);line-height:1;pointer-events:none;
+}
+.hero-inner{max-width:860px;position:relative;z-index:2;}
+.hero-kicker{
+  display:inline-block;padding:8px 18px;border-radius:999px;
+  border:1.5px solid rgba(224,169,58,.6);color:var(--mustard-pale);
+  font-size:12.5px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;
+  margin-bottom:22px;background:rgba(74,18,22,.35);
+}
+.hero-inner h1{
+  color:var(--cream);font-size:clamp(30px,5.6vw,56px);line-height:1.14;
+  margin-bottom:16px;text-wrap:balance;
+}
+.hero-inner h1 em{color:var(--mustard-light);font-style:normal;}
+.hero-meta{
+  color:var(--mustard-pale);font-weight:600;font-size:15px;letter-spacing:.06em;margin-bottom:18px;
+}
+.hero-tag{
+  color:rgba(251,246,237,.9);font-size:clamp(16px,2.4vw,20px);
+  max-width:640px;margin:0 auto 34px;font-family:Georgia,serif;font-style:italic;
+}
+.cta-row{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;}
+.cta{
+  display:inline-flex;align-items:center;justify-content:center;
+  padding:14px 28px;border-radius:999px;font-weight:700;font-size:15.5px;
+  text-decoration:none;transition:transform .22s ease,box-shadow .22s ease,background .22s ease;
+  min-height:48px;
+}
+.cta.primary{background:var(--mustard);color:var(--maroon-deep);box-shadow:0 6px 20px rgba(212,160,23,.45);}
+.cta.primary:hover,.cta.primary:active{transform:translateY(-3px) scale(1.02);background:var(--mustard-light);}
+.cta.ghost{border:1.6px solid rgba(251,246,237,.55);color:var(--cream);}
+.cta.ghost:hover,.cta.ghost:active{background:rgba(251,246,237,.12);transform:translateY(-3px);}
+.hero-scrollhint{
+  position:absolute;left:50%;bottom:calc(18px + env(safe-area-inset-bottom,0px));
+  transform:translateX(-50%);color:rgba(251,246,237,.7);font-size:12px;letter-spacing:.18em;
+  text-transform:uppercase;animation:bob 2.2s ease-in-out infinite;
+}
+@keyframes bob{0%,100%{transform:translate(-50%,0);}50%{transform:translate(-50%,8px);}}
+
+/* ---------- Sections ---------- */
+.section{padding:clamp(40px,6vw,84px) 0 30px;scroll-margin-top:78px;}
+header#hero,[id]{scroll-margin-top:78px;}
+.container{max-width:1080px;margin:0 auto;padding:0 max(20px,env(safe-area-inset-left,0px)) 0 max(20px,env(safe-area-inset-right,0px));}
+.blocktag{
+  display:inline-flex;align-items:center;gap:8px;
+  background:var(--maroon);color:var(--mustard-pale);
+  padding:7px 16px;border-radius:999px;font-size:12px;font-weight:700;
+  letter-spacing:.16em;text-transform:uppercase;margin-bottom:14px;
+}
+.section-title{color:var(--maroon);font-size:clamp(26px,4vw,40px);line-height:1.18;margin-bottom:12px;text-wrap:balance;}
+.lede{color:var(--ink-soft);font-size:17px;max-width:760px;margin-bottom:34px;}
+.lede strong{color:var(--maroon);}
+
+/* ---------- Cards ---------- */
+.card{
+  background:var(--cream-deep);
+  border:1.6px solid rgba(212,160,23,.55);
+  border-radius:var(--radius);
+  box-shadow:var(--shadow);
+  padding:24px;
+  transition:transform .25s ease,box-shadow .25s ease,border-color .25s ease;
+}
+.card:hover,.card.tapped{transform:translateY(-5px);box-shadow:var(--shadow-lift);border-color:var(--mustard);}
+.card h3{color:var(--maroon);font-size:20px;margin-bottom:10px;}
+.card h4{color:var(--maroon);font-size:16.5px;margin-bottom:8px;}
+.card p{font-size:15px;color:var(--ink);}
+.card p+p{margin-top:10px;}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:26px;}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-bottom:26px;}
+.mt{margin-top:26px;}
+.mb{margin-bottom:26px;}
+
+/* ---------- Reveal on scroll ---------- */
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .65s ease,transform .65s ease;}
+.reveal.in{opacity:1;transform:none;}
+.reveal.d1{transition-delay:.08s;}.reveal.d2{transition-delay:.16s;}.reveal.d3{transition-delay:.24s;}
+@media (prefers-reduced-motion:reduce){
+  .reveal{opacity:1;transform:none;transition:none;}
+  #hero{animation:none;}
+  html{scroll-behavior:auto;}
+}
+
+/* ---------- Learning map ---------- */
+.map-track{display:grid;grid-template-columns:repeat(7,1fr);gap:12px;position:relative;margin-bottom:10px;}
+.map-node{
+  background:var(--cream-deep);border:1.6px solid rgba(212,160,23,.5);border-radius:14px;
+  padding:16px 12px;text-align:center;text-decoration:none;color:var(--ink);
+  transition:transform .25s ease,box-shadow .25s ease,background .25s ease;
+  display:flex;flex-direction:column;align-items:center;gap:8px;min-height:44px;
+}
+.map-node:hover,.map-node:active{transform:translateY(-6px);box-shadow:var(--shadow-lift);background:#fff9ee;}
+.map-num{
+  width:40px;height:40px;border-radius:50%;background:var(--maroon);color:var(--mustard-pale);
+  display:flex;align-items:center;justify-content:center;font-weight:700;font-family:Georgia,serif;font-size:17px;
+  border:2px solid var(--mustard);
+}
+.map-node b{font-size:13px;line-height:1.3;color:var(--maroon);}
+.map-node span{font-size:11px;color:var(--ink-soft);line-height:1.35;}
+
+/* ---------- Accordions ---------- */
+.accordion{border:1.6px solid rgba(212,160,23,.55);border-radius:14px;background:var(--cream-deep);margin-bottom:12px;overflow:hidden;box-shadow:var(--shadow);}
+.acc-head{
+  width:100%;display:flex;justify-content:space-between;align-items:center;gap:12px;
+  padding:16px 20px;background:transparent;border:none;text-align:left;
+  font-family:Georgia,serif;font-size:16.5px;font-weight:700;color:var(--maroon);
+  transition:background .2s ease;
+}
+.acc-head:hover{background:rgba(212,160,23,.12);}
+.acc-head .acc-ico{
+  flex-shrink:0;width:30px;height:30px;border-radius:50%;background:var(--mustard);
+  color:var(--maroon-deep);display:flex;align-items:center;justify-content:center;
+  font-size:18px;font-weight:800;transition:transform .3s ease;font-family:'Inter',sans-serif;
+}
+.accordion.open .acc-ico{transform:rotate(45deg);}
+.acc-body{max-height:0;overflow:hidden;transition:max-height .45s ease;}
+.acc-inner{padding:0 20px 20px;font-size:15px;color:var(--ink);}
+.acc-inner p+p{margin-top:10px;}
+.acc-inner .say{
+  margin-top:12px;padding:12px 16px;border-left:4px solid var(--mustard);
+  background:rgba(212,160,23,.1);border-radius:0 10px 10px 0;font-size:14px;
+}
+.acc-inner .say b{color:var(--maroon);}
+
+/* ---------- Flip cards ---------- */
+.flip{perspective:1200px;min-height:330px;cursor:pointer;}
+.flip-inner{
+  position:relative;width:100%;height:100%;min-height:330px;
+  transform-style:preserve-3d;-webkit-transform-style:preserve-3d;
+  transition:transform .7s cubic-bezier(.4,.1,.2,1);
+}
+.flip.flipped .flip-inner{transform:rotateY(180deg);}
+.flip-face{
+  position:absolute;inset:0;border-radius:var(--radius);padding:24px;
+  -webkit-backface-visibility:hidden;backface-visibility:hidden;
+  border:1.6px solid var(--mustard);box-shadow:var(--shadow);
+  display:flex;flex-direction:column;
+}
+.flip-front{background:var(--cream-deep);}
+.flip-back{background:var(--maroon);color:var(--cream);transform:rotateY(180deg);}
+.flip-back h4,.flip-back h3{color:var(--mustard-light);}
+.flip-back p,.flip-back li{color:var(--cream);font-size:14px;}
+.flip-hint{margin-top:auto;font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--mustard);}
+.flip ul{padding-left:18px;margin:8px 0;}
+.flip li{margin-bottom:6px;font-size:14px;}
+
+/* ---------- Chips ---------- */
+.chips{display:flex;flex-wrap:wrap;gap:10px;margin:14px 0 20px;}
+.chip{
+  padding:10px 18px;border-radius:999px;border:1.6px solid var(--maroon);
+  background:transparent;color:var(--maroon);font-weight:600;font-size:14px;
+  transition:all .22s ease;
+}
+.chip:hover{transform:translateY(-2px);box-shadow:0 4px 10px rgba(75,18,22,.15);}
+.chip.on{background:var(--maroon);color:var(--mustard-pale);box-shadow:0 4px 12px rgba(75,18,22,.3);}
+
+/* ---------- Promotion tool selector ---------- */
+.toolgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
+.tool{
+  border:1.8px solid rgba(212,160,23,.45);border-radius:14px;background:var(--cream-deep);
+  padding:18px 16px;transition:all .35s ease;position:relative;
+}
+.tool h4{font-size:16px;color:var(--maroon);margin-bottom:5px;display:flex;align-items:center;gap:8px;}
+.tool .t-ico{font-size:20px;}
+.tool p{font-size:13px;color:var(--ink-soft);line-height:1.5;}
+.tool .t-why{font-size:12.5px;margin-top:8px;font-weight:600;display:none;line-height:1.45;}
+.tool.match{border-color:var(--mustard);background:#fff6dd;box-shadow:0 0 0 3px rgba(212,160,23,.25),0 10px 22px rgba(212,160,23,.3);transform:translateY(-4px);}
+.tool.match .t-why{display:block;color:#7a5a00;}
+.tool.dim{opacity:.45;filter:grayscale(.5);}
+.tool.dim .t-why{display:block;color:var(--warn);}
+
+/* ---------- Simulator ---------- */
+.simbox{background:var(--maroon-deep);border-radius:var(--radius);padding:26px;color:var(--cream);border:1.6px solid var(--mustard);box-shadow:var(--shadow-lift);}
+.simbox h3{color:var(--mustard-light);margin-bottom:6px;}
+.simbox .sub{color:rgba(251,246,237,.75);font-size:14px;margin-bottom:18px;}
+.slider-row{display:flex;align-items:center;gap:16px;margin-bottom:14px;flex-wrap:wrap;}
+.slider-row label{font-weight:700;font-size:14px;color:var(--mustard-pale);}
+input[type=range]{
+  -webkit-appearance:none;appearance:none;flex:1;min-width:190px;height:44px;background:transparent;
+}
+input[type=range]::-webkit-slider-runnable-track{height:8px;border-radius:99px;background:linear-gradient(90deg,var(--mustard),var(--maroon-soft));}
+input[type=range]::-webkit-slider-thumb{
+  -webkit-appearance:none;width:28px;height:28px;border-radius:50%;background:var(--mustard);
+  border:3px solid var(--cream);margin-top:-10px;box-shadow:0 2px 8px rgba(0,0,0,.4);
+}
+input[type=range]::-moz-range-track{height:8px;border-radius:99px;background:linear-gradient(90deg,var(--mustard),var(--maroon-soft));}
+input[type=range]::-moz-range-thumb{width:26px;height:26px;border-radius:50%;background:var(--mustard);border:3px solid var(--cream);}
+.freq-read{font-family:Georgia,serif;font-size:26px;color:var(--mustard-light);min-width:44px;text-align:center;}
+.simcanvas-wrap{background:rgba(251,246,237,.06);border-radius:12px;padding:10px;margin:10px 0 14px;}
+canvas.simcanvas{width:100%;height:240px;display:block;}
+.verdict{
+  border-left:4px solid var(--mustard);padding:12px 16px;background:rgba(224,169,58,.12);
+  border-radius:0 10px 10px 0;font-size:15px;font-family:Georgia,serif;font-style:italic;color:var(--cream);
+  min-height:54px;transition:opacity .3s ease;
+}
+.presets{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px;}
+.preset{
+  padding:10px 16px;border-radius:10px;border:1.5px solid rgba(224,169,58,.6);
+  background:transparent;color:var(--mustard-pale);font-weight:600;font-size:13.5px;
+  transition:all .22s ease;
+}
+.preset:hover,.preset.on{background:var(--mustard);color:var(--maroon-deep);transform:translateY(-2px);}
+.legend{display:flex;gap:18px;font-size:12.5px;margin-bottom:6px;color:rgba(251,246,237,.85);flex-wrap:wrap;}
+.legend i{display:inline-block;width:14px;height:4px;border-radius:2px;margin-right:6px;vertical-align:middle;}
+
+/* ---------- Case cards ---------- */
+.case-card{cursor:pointer;position:relative;overflow:hidden;}
+.case-card .case-more{max-height:0;overflow:hidden;transition:max-height .5s ease;}
+.case-card.open .case-more{max-height:600px;}
+.case-brand{
+  display:inline-block;font-size:11.5px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--maroon);background:rgba(212,160,23,.25);padding:5px 12px;border-radius:999px;margin-bottom:10px;
+}
+.case-toggle{font-size:12.5px;font-weight:700;color:var(--warn);margin-top:10px;letter-spacing:.06em;text-transform:uppercase;}
+.case-more p{margin-top:10px;font-size:14px;}
+.case-more .lesson{border-left:4px solid var(--maroon);padding:10px 14px;background:rgba(107,30,35,.07);border-radius:0 10px 10px 0;margin-top:12px;font-size:13.5px;}
+.case-more .lesson b{color:var(--maroon);}
+
+/* ---------- Video embeds ---------- */
+.video-card{padding:0;overflow:hidden;}
+.video-wrap{position:relative;width:100%;padding-top:56.25%;background:var(--maroon-deep);}
+.video-wrap iframe{position:absolute;inset:0;width:100%;height:100%;border:0;}
+.videoFacade{position:absolute;inset:0;width:100%;height:100%;border:0;padding:0;cursor:pointer;background-size:cover;background-position:center;display:flex;align-items:center;justify-content:center}
+.videoFacade .vfPlay{width:64px;height:64px;min-width:44px;min-height:44px;border-radius:50%;background:rgba(107,30,35,.88);display:flex;align-items:center;justify-content:center;transition:transform .15s ease}
+.videoFacade .vfPlay svg{width:26px;height:26px;fill:var(--cream);margin-left:3px}
+.videoFacade:hover .vfPlay{transform:scale(1.08)}
+.vWatchLink{display:inline-flex;align-items:center;min-height:46px;margin-top:4px;font-size:13px;color:var(--maroon);text-decoration:underline;text-underline-offset:3px}
+.video-note{padding:20px 24px;}
+.video-note .vtag{
+  display:inline-block;background:var(--maroon);color:var(--mustard-pale);font-size:11px;font-weight:700;
+  letter-spacing:.14em;text-transform:uppercase;padding:4px 12px;border-radius:999px;margin-bottom:8px;
+}
+.video-note p{font-size:14px;}
+
+/* ---------- Field activity ---------- */
+.field-card{
+  position:relative;background:#fffdf6;border:2px dashed var(--maroon);border-radius:var(--radius);
+  padding:28px 24px 24px;box-shadow:var(--shadow);overflow:hidden;
+}
+.field-stamp{
+  position:absolute;top:16px;right:-40px;transform:rotate(35deg);
+  background:var(--maroon);color:var(--mustard-pale);font-size:11px;font-weight:800;
+  letter-spacing:.18em;padding:7px 48px;text-transform:uppercase;box-shadow:0 3px 8px rgba(0,0,0,.25);
+}
+.field-card h3{color:var(--maroon);display:flex;align-items:center;gap:10px;padding-right:70px;}
+.field-card .fc-sub{font-size:12.5px;font-weight:700;color:var(--warn);text-transform:uppercase;letter-spacing:.1em;margin-bottom:12px;}
+.checklist{list-style:none;margin-top:14px;}
+.checklist li{
+  display:flex;gap:12px;align-items:flex-start;padding:10px 12px;border-radius:10px;
+  font-size:14.5px;cursor:pointer;transition:background .2s ease;min-height:44px;
+}
+.checklist li:hover{background:rgba(212,160,23,.12);}
+.checklist .box{
+  flex-shrink:0;width:24px;height:24px;border:2px solid var(--maroon);border-radius:6px;margin-top:1px;
+  display:flex;align-items:center;justify-content:center;color:transparent;font-weight:800;font-size:15px;
+  transition:all .25s ease;
+}
+.checklist li.done .box{background:var(--maroon);color:var(--mustard-light);}
+.checklist li.done{opacity:.65;text-decoration:line-through;text-decoration-color:rgba(107,30,35,.5);}
+
+/* ---------- Virality builder ---------- */
+.builder-group{margin-bottom:18px;}
+.builder-group .bg-label{font-weight:800;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--maroon);margin-bottom:8px;display:block;}
+.gauge-wrap{display:flex;align-items:center;gap:26px;flex-wrap:wrap;margin-top:10px;}
+.ring{position:relative;width:150px;height:150px;flex-shrink:0;}
+.ring svg{transform:rotate(-90deg);}
+.ring .ring-bg{fill:none;stroke:rgba(107,30,35,.15);stroke-width:12;}
+.ring .ring-val{fill:none;stroke:url(#ringGrad);stroke-width:12;stroke-linecap:round;transition:stroke-dashoffset .8s cubic-bezier(.3,.7,.3,1);}
+.ring .ring-num{
+  position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;
+  font-family:Georgia,serif;font-size:34px;font-weight:700;color:var(--maroon);
+}
+.ring .ring-num small{font-family:'Inter',sans-serif;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft);}
+.critique{flex:1;min-width:230px;font-size:15px;font-family:Georgia,serif;font-style:italic;color:var(--ink);border-left:4px solid var(--mustard);padding-left:16px;}
+
+/* ---------- Ripple ---------- */
+.ripple-box{background:var(--maroon-deep);border-radius:var(--radius);border:1.6px solid var(--mustard);padding:22px;color:var(--cream);}
+.ripple-box svg{width:100%;height:auto;display:block;}
+.node{fill:#5c4438;transition:fill .4s ease,r .4s ease;}
+.node.lit{fill:var(--mustard);}
+.node.seed{fill:var(--mustard-light);}
+.edge{stroke:rgba(224,169,58,.15);stroke-width:1.2;transition:stroke .4s ease;}
+.edge.lit{stroke:rgba(224,169,58,.75);stroke-width:1.8;}
+.toggle-row{display:flex;gap:10px;align-items:center;margin-bottom:16px;flex-wrap:wrap;}
+.tab{
+  padding:10px 18px;border-radius:999px;border:1.5px solid rgba(224,169,58,.55);
+  background:transparent;color:var(--mustard-pale);font-weight:700;font-size:13.5px;transition:all .22s ease;
+}
+.tab.on{background:var(--mustard);color:var(--maroon-deep);}
+.ripple-cap{font-size:14px;font-family:Georgia,serif;font-style:italic;color:rgba(251,246,237,.9);border-left:3px solid var(--mustard);padding-left:14px;margin-top:14px;min-height:44px;}
+
+/* ---------- Comparison table ---------- */
+.cmp{width:100%;border-collapse:separate;border-spacing:0;border:1.6px solid var(--mustard);border-radius:14px;overflow:hidden;background:var(--cream-deep);}
+.cmp th{background:var(--maroon);color:var(--mustard-pale);padding:14px;font-family:Georgia,serif;font-size:15px;text-align:left;}
+.cmp td{padding:0;border-top:1px solid rgba(212,160,23,.35);vertical-align:top;}
+.cmp .row-head{
+  width:100%;background:none;border:none;text-align:left;padding:14px;font-weight:700;color:var(--maroon);
+  font-size:14.5px;display:flex;justify-content:space-between;gap:8px;align-items:center;
+}
+.cmp .row-body{max-height:0;overflow:hidden;transition:max-height .4s ease;font-size:14px;}
+.cmp tr.open .row-body{max-height:280px;}
+.cmp .row-body>div{padding:0 14px 14px;color:var(--ink);}
+.cmp .mini{font-size:11px;color:var(--warn);font-weight:800;letter-spacing:.06em;}
+
+/* ---------- Journalist inbox ---------- */
+.inbox{border:1.6px solid var(--mustard);border-radius:var(--radius);overflow:hidden;background:#fffdf6;box-shadow:var(--shadow);}
+.inbox-bar{background:var(--maroon);color:var(--cream);padding:12px 18px;font-size:13px;font-weight:700;display:flex;gap:10px;align-items:center;}
+.inbox-bar .dot{width:10px;height:10px;border-radius:50%;background:var(--mustard);}
+.email-row{
+  display:block;width:100%;text-align:left;background:none;border:none;border-top:1px solid rgba(212,160,23,.3);
+  padding:15px 18px;position:relative;transition:background .2s ease;
+}
+.email-row:hover{background:rgba(212,160,23,.1);}
+.email-row .from{font-size:12px;font-weight:700;color:var(--ink-soft);letter-spacing:.04em;}
+.email-row .subj{font-size:15px;font-weight:600;color:var(--ink);margin-top:2px;font-family:Georgia,serif;}
+.email-row.rejected{opacity:.55;}
+.stampmark{
+  position:absolute;right:14px;top:50%;transform:translateY(-50%) rotate(-9deg) scale(0);
+  border:2.5px solid var(--warn);color:var(--warn);font-weight:800;font-size:11px;
+  letter-spacing:.1em;text-transform:uppercase;padding:5px 10px;border-radius:6px;background:rgba(255,253,246,.9);
+  transition:transform .35s cubic-bezier(.2,1.6,.4,1);pointer-events:none;
+}
+.email-row.rejected .stampmark{transform:translateY(-50%) rotate(-9deg) scale(1);}
+.email-row.winner{background:#fff3d1;}
+.pr-reveal{max-height:0;overflow:hidden;transition:max-height .6s ease;background:#fff;border-top:1px solid rgba(212,160,23,.3);}
+.pr-reveal.open{max-height:1400px;}
+.pr-doc{padding:22px;font-size:14px;}
+.ann{
+  display:block;border-left:4px solid var(--mustard);background:rgba(212,160,23,.1);
+  padding:10px 14px;margin:10px 0;border-radius:0 10px 10px 0;
+}
+.ann b{display:block;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--maroon);margin-bottom:4px;}
+
+/* ---------- CSR litmus ---------- */
+.litmus-stage{position:relative;min-height:300px;margin-bottom:16px;}
+.swipe-card{
+  position:absolute;inset:0;background:var(--cream-deep);border:1.8px solid var(--mustard);
+  border-radius:var(--radius);padding:24px;box-shadow:var(--shadow-lift);
+  display:flex;flex-direction:column;justify-content:center;text-align:center;
+  transition:transform .45s ease,opacity .45s ease;touch-action:pan-y;
+  will-change:transform;
+}
+.swipe-card.gone-l{transform:translateX(-130%) rotate(-10deg);opacity:0;pointer-events:none;}
+.swipe-card.gone-r{transform:translateX(130%) rotate(10deg);opacity:0;pointer-events:none;}
+.swipe-card .claim{font-family:Georgia,serif;font-size:clamp(16px,2.4vw,20px);color:var(--ink);font-style:italic;}
+.swipe-card .who{margin-top:12px;font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-soft);}
+.vote-row{display:flex;gap:14px;justify-content:center;margin-bottom:18px;}
+.votebtn{
+  padding:12px 26px;border-radius:999px;font-weight:800;font-size:15px;border:2px solid;transition:all .22s ease;background:transparent;
+}
+.votebtn.walk{border-color:var(--ok);color:var(--ok);}
+.votebtn.walk:hover,.votebtn.walk:active{background:var(--ok);color:#fff;transform:translateY(-2px);}
+.votebtn.talk{border-color:var(--warn);color:var(--warn);}
+.votebtn.talk:hover,.votebtn.talk:active{background:var(--warn);color:#fff;transform:translateY(-2px);}
+.meter-wrap{max-width:340px;margin:0 auto 8px;}
+.meter-needle{transform-origin:100px 95px;transition:transform .8s cubic-bezier(.3,1.4,.4,1);}
+.litmus-verdict{
+  border:1.6px solid rgba(212,160,23,.5);border-radius:12px;background:#fffdf6;padding:16px 18px;
+  font-size:14px;min-height:66px;transition:opacity .3s ease;
+}
+.litmus-verdict b{color:var(--maroon);}
+
+/* ---------- Crisis game ---------- */
+.crisis-box{background:var(--maroon-deep);border-radius:var(--radius);border:1.6px solid var(--mustard);padding:24px;color:var(--cream);}
+.crisis-box h3{color:var(--mustard-light);}
+.crisis-scenario{
+  background:rgba(224,169,58,.1);border:1px dashed rgba(224,169,58,.5);border-radius:12px;
+  padding:14px 18px;font-size:14.5px;margin:14px 0 18px;font-family:Georgia,serif;font-style:italic;
+}
+.countdown{
+  font-family:Georgia,serif;font-size:34px;color:var(--mustard-light);letter-spacing:.06em;
+  display:flex;align-items:baseline;gap:10px;margin-bottom:6px;
+}
+.countdown small{font-family:'Inter',sans-serif;font-size:12px;color:rgba(251,246,237,.7);letter-spacing:.12em;text-transform:uppercase;}
+.countdown.hot{color:#ff9d6b;animation:pulseHot 1s ease-in-out infinite;}
+@keyframes pulseHot{0%,100%{opacity:1;}50%{opacity:.55;}}
+.cardpool{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:16px 0;}
+.action-card{
+  background:var(--cream);color:var(--maroon-deep);border:none;border-radius:10px;padding:13px 12px;
+  font-weight:700;font-size:13px;line-height:1.35;transition:all .25s ease;box-shadow:0 3px 8px rgba(0,0,0,.3);
+  min-height:60px;
+}
+.action-card:hover{transform:translateY(-3px);background:var(--mustard-pale);}
+.action-card:disabled{opacity:.25;transform:scale(.94);}
+.timeline-slots{display:grid;grid-template-columns:repeat(6,1fr);gap:8px;margin:14px 0;}
+.slot{
+  border:1.8px dashed rgba(224,169,58,.5);border-radius:10px;min-height:86px;padding:8px 6px;
+  font-size:11.5px;text-align:center;display:flex;flex-direction:column;gap:6px;align-items:center;justify-content:flex-start;
+  background:rgba(251,246,237,.04);transition:all .25s ease;
+}
+.slot .slot-h{font-weight:800;letter-spacing:.08em;color:rgba(251,246,237,.6);font-size:10px;text-transform:uppercase;}
+.slot .placed{
+  background:var(--mustard);color:var(--maroon-deep);border-radius:8px;padding:7px 6px;width:100%;
+  font-weight:700;font-size:11.5px;line-height:1.3;border:none;min-height:44px;
+}
+.slot.good{border-color:#7fd49a;box-shadow:0 0 0 2px rgba(127,212,154,.3);}
+.slot.near{border-color:var(--mustard);}
+.slot.bad{border-color:#ff9d6b;}
+.crisis-result{margin-top:14px;font-size:14.5px;border-left:4px solid var(--mustard);padding:10px 16px;background:rgba(224,169,58,.1);border-radius:0 10px 10px 0;display:none;}
+.crisis-result.show{display:block;animation:fadeUp .5s ease;}
+.crisis-ctl{display:flex;gap:10px;flex-wrap:wrap;margin-top:8px;}
+@keyframes fadeUp{from{opacity:0;transform:translateY(12px);}to{opacity:1;transform:none;}}
+
+/* ---------- Reservoir tanks ---------- */
+.tanks{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin:18px 0;}
+.tankcard{background:var(--cream-deep);border:1.6px solid var(--mustard);border-radius:var(--radius);padding:20px;text-align:center;box-shadow:var(--shadow);}
+.tankcard h4{color:var(--maroon);margin-bottom:4px;}
+.tankcard .tanksub{font-size:12px;color:var(--ink-soft);margin-bottom:12px;}
+.tank-svg{width:150px;height:190px;margin:0 auto;display:block;}
+.water{transition:height 1.1s cubic-bezier(.3,.8,.3,1),y 1.1s cubic-bezier(.3,.8,.3,1);}
+.tank-read{font-family:Georgia,serif;font-size:20px;color:var(--maroon);margin-top:8px;font-weight:700;}
+.yeartoggles{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin:14px 0;}
+.yr{
+  padding:9px 14px;min-height:46px;display:inline-flex;align-items:center;justify-content:center;border-radius:10px;border:1.5px solid var(--maroon);background:transparent;
+  color:var(--maroon);font-weight:700;font-size:13px;transition:all .2s ease;
+}
+.yr.on{background:var(--maroon);color:var(--mustard-pale);}
+.crisis-strike{
+  background:var(--warn);color:#fff;border:none;border-radius:999px;padding:13px 26px;font-weight:800;
+  font-size:15px;transition:all .22s ease;box-shadow:0 5px 16px rgba(179,84,30,.4);
+}
+.crisis-strike:hover{transform:translateY(-2px) scale(1.03);}
+.tank-caption{font-size:13.5px;font-style:italic;font-family:Georgia,serif;color:var(--ink-soft);margin-top:10px;min-height:40px;}
+
+/* ---------- Scorecard ---------- */
+.scorecard{display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:start;}
+.sc-sliders label{display:flex;justify-content:space-between;font-size:13.5px;font-weight:700;color:var(--maroon);margin-bottom:2px;margin-top:12px;}
+.sc-sliders label output{color:var(--warn);font-family:Georgia,serif;font-size:15px;}
+.sc-sliders input[type=range]::-webkit-slider-runnable-track{background:linear-gradient(90deg,rgba(107,30,35,.25),var(--mustard));}
+.radar-wrap{background:var(--cream-deep);border:1.6px solid var(--mustard);border-radius:var(--radius);padding:16px;box-shadow:var(--shadow);}
+canvas#radar{width:100%;height:300px;display:block;}
+.sc-verdict{
+  margin-top:12px;border-left:4px solid var(--maroon);background:rgba(107,30,35,.06);
+  padding:12px 16px;border-radius:0 10px 10px 0;font-size:14.5px;font-family:Georgia,serif;font-style:italic;min-height:60px;
+}
+
+/* ---------- ASCI flow ---------- */
+.flow{display:flex;flex-direction:column;gap:0;position:relative;margin:20px 0;}
+.flow::before{content:"";position:absolute;left:27px;top:20px;bottom:20px;width:3px;background:linear-gradient(var(--maroon),var(--mustard));border-radius:2px;}
+.fstep{position:relative;padding-left:72px;margin-bottom:14px;}
+.fstep .fnum{
+  position:absolute;left:0;top:0;width:56px;height:56px;border-radius:50%;
+  background:var(--maroon);color:var(--mustard-pale);border:3px solid var(--mustard);
+  display:flex;align-items:center;justify-content:center;font-family:Georgia,serif;font-size:22px;font-weight:700;z-index:2;
+}
+.fstep .fbody{
+  background:var(--cream-deep);border:1.6px solid rgba(212,160,23,.55);border-radius:14px;overflow:hidden;box-shadow:var(--shadow);
+}
+.fstep .fhead{
+  width:100%;background:none;border:none;text-align:left;padding:16px 18px;
+  font-family:Georgia,serif;font-weight:700;font-size:16px;color:var(--maroon);
+  display:flex;justify-content:space-between;align-items:center;gap:10px;
+}
+.fstep .fdetail{max-height:0;overflow:hidden;transition:max-height .45s ease;}
+.fstep .fdetail>div{padding:0 18px 18px;font-size:14px;}
+.fstep.open .fdetail{max-height:560px;}
+.fstep .ex{border-left:4px solid var(--warn);background:rgba(179,84,30,.07);padding:10px 14px;border-radius:0 10px 10px 0;margin-top:10px;font-size:13.5px;}
+.fstep .ex b{color:var(--warn);}
+
+/* ---------- Studio ---------- */
+.studio-shell{background:var(--cream-deep);border:1.8px solid var(--mustard);border-radius:20px;box-shadow:var(--shadow-lift);overflow:hidden;}
+.studio-head{background:linear-gradient(120deg,var(--maroon-deep),var(--maroon));padding:26px;color:var(--cream);}
+.studio-head h3{color:var(--mustard-light);font-size:24px;}
+.stepdots{display:flex;gap:10px;justify-content:center;padding:18px 0 4px;}
+.sdot{
+  width:46px;height:46px;min-width:46px;min-height:46px;
+  border:none;padding:0;background:transparent;
+  display:inline-flex;align-items:center;justify-content:center;
+}
+.sdot::before{
+  content:"";width:12px;height:12px;border-radius:50%;
+  background:rgba(107,30,35,.2);transition:all .3s ease;display:block;
+}
+.sdot.on::before{background:var(--mustard);transform:scale(1.35);box-shadow:0 0 0 4px rgba(212,160,23,.25);}
+.sdot.done::before{background:var(--maroon);}
+.step-panel{display:none;padding:22px 26px 30px;animation:fadeUp .45s ease;}
+.step-panel.show{display:block;}
+.step-panel h4{color:var(--maroon);font-size:19px;margin-bottom:6px;}
+.step-panel .hint{font-size:13.5px;color:var(--ink-soft);margin-bottom:16px;}
+.f-row{margin-bottom:16px;}
+.f-row label{display:block;font-weight:700;font-size:13.5px;color:var(--maroon);margin-bottom:6px;}
+.f-row input[type=text],.f-row select,.f-row textarea{
+  width:100%;padding:13px 14px;border:1.6px solid rgba(107,30,35,.35);border-radius:10px;
+  background:#fffdf6;color:var(--ink);font-size:16px;transition:border-color .2s ease,box-shadow .2s ease;
+}
+.f-row textarea{min-height:90px;resize:vertical;}
+.f-row input:focus,.f-row select:focus,.f-row textarea:focus{outline:none;border-color:var(--mustard);box-shadow:0 0 0 3px rgba(212,160,23,.25);}
+.suggest{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px;}
+.suggest button{
+  font-size:12.5px;padding:8px 14px;border-radius:999px;border:1px solid rgba(107,30,35,.3);
+  background:#fff;color:var(--maroon);font-weight:600;transition:all .2s ease;
+}
+.suggest button:hover{background:var(--mustard-pale);}
+.stress-q{border-left:4px solid var(--warn);padding-left:14px;margin-bottom:6px;font-weight:700;color:var(--warn);font-size:14px;}
+.studio-nav{display:flex;justify-content:space-between;gap:12px;padding:0 26px 26px;}
+.snbtn{
+  padding:13px 26px;border-radius:999px;font-weight:800;font-size:15px;border:none;transition:all .22s ease;
+}
+.snbtn.next{background:var(--maroon);color:var(--mustard-pale);box-shadow:0 5px 14px rgba(107,30,35,.35);}
+.snbtn.next:hover{transform:translateY(-2px);background:var(--maroon-soft);}
+.snbtn.back{background:transparent;border:1.6px solid rgba(107,30,35,.4);color:var(--maroon);}
+.snbtn.back:hover{background:rgba(107,30,35,.08);}
+.snbtn:disabled{opacity:.35;}
+
+/* ---------- One pager ---------- */
+#onepager{background:#fff;border:1px solid rgba(107,30,35,.25);border-radius:14px;padding:34px;box-shadow:var(--shadow);}
+#onepager .op-head{border-bottom:3px solid var(--maroon);padding-bottom:14px;margin-bottom:18px;display:flex;justify-content:space-between;align-items:flex-start;gap:12px;flex-wrap:wrap;}
+#onepager h3{color:var(--maroon);font-size:22px;}
+#onepager .op-badge{font-family:Georgia,serif;font-size:26px;color:var(--mustard);border:2px solid var(--mustard);border-radius:50%;width:48px;height:48px;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+#onepager h5{color:var(--maroon);font-size:12px;letter-spacing:.16em;text-transform:uppercase;margin:16px 0 6px;font-family:'Inter',sans-serif;}
+#onepager p,#onepager li{font-size:14px;}
+#onepager ol{padding-left:20px;}
+#onepager .op-split{border-top:2px dashed var(--mustard);margin:22px 0 4px;padding-top:14px;}
+.op-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:18px;}
+
+/* ---------- Reflection, clauses, footnotes ---------- */
+.clause{border-left:5px solid var(--maroon);}
+.reflect{
+  background:linear-gradient(120deg,var(--maroon-deep),var(--maroon));color:var(--cream);
+  border-radius:var(--radius);padding:28px;border:1.6px solid var(--mustard);
+}
+.reflect h3{color:var(--mustard-light);}
+.reflect textarea{
+  width:100%;margin-top:14px;padding:14px;border-radius:12px;border:1.5px solid rgba(224,169,58,.5);
+  background:rgba(251,246,237,.08);color:var(--cream);font-size:16px;min-height:100px;
+}
+.reflect textarea::placeholder{color:rgba(251,246,237,.5);}
+.foot{
+  display:inline-block;font-size:10.5px;font-weight:700;color:var(--ink-soft);
+  background:rgba(107,30,35,.08);border:1px solid rgba(107,30,35,.15);
+  padding:2px 9px;border-radius:999px;vertical-align:middle;margin:0 3px;white-space:nowrap;
+}
+.footrow{margin-top:18px;font-size:12px;color:var(--ink-soft);}
+
+/* ---------- Footer ---------- */
+footer{
+  background:var(--maroon-deep);color:var(--cream);margin-top:70px;
+  padding:56px 20px calc(40px + env(safe-area-inset-bottom,0px));text-align:center;
+}
+footer .sig{font-family:Georgia,serif;font-size:clamp(24px,4vw,34px);color:var(--mustard-light);font-style:italic;margin:16px 0 8px;}
+footer .principles{max-width:560px;margin:0 auto 26px;font-size:14.5px;color:rgba(251,246,237,.8);}
+footer .fsoc{display:flex;gap:14px;justify-content:center;margin-top:18px;flex-wrap:wrap;}
+footer .fsoc a{
+  color:var(--mustard-pale);text-decoration:none;border:1.5px solid rgba(224,169,58,.45);
+  padding:10px 20px;border-radius:999px;font-size:13px;font-weight:600;transition:all .22s ease;
+  min-height:44px;display:inline-flex;align-items:center;
+}
+footer .fsoc a:hover{background:rgba(224,169,58,.15);transform:translateY(-2px);}
+footer .fcredit{margin-top:26px;font-size:12px;color:rgba(251,246,237,.5);}
+
+/* ---------- Print (used only by the real tab opened via "Open printable version") ---------- */
+@media print{
+  body *{visibility:hidden;}
+  #onepager,#onepager *{visibility:visible;}
+  #onepager{position:absolute;left:0;top:0;width:100%;border:none;box-shadow:none;}
+}
+
+/* ---------- Toast ---------- */
+#toast{
+  position:-webkit-sticky;position:sticky;bottom:16px;margin:0 auto;
+  max-width:320px;width:calc(100% - 32px);
+  background:var(--maroon-deep);color:var(--cream);
+  padding:12px 18px;border-radius:12px;font-size:14px;text-align:center;
+  box-shadow:var(--shadow-lift);
+  opacity:0;transform:translateY(10px);pointer-events:none;
+  transition:opacity .25s ease,transform .25s ease;
+  z-index:1200;
+}
+#toast.show{opacity:1;transform:translateY(0)}
+
+/* ---------- Responsive ---------- */
+@media (max-width:920px){
+  .toolgrid{grid-template-columns:repeat(2,1fr);}
+  .map-track{grid-template-columns:repeat(4,1fr);}
+  .cardpool{grid-template-columns:repeat(2,1fr);}
+  .timeline-slots{grid-template-columns:repeat(3,1fr);}
+}
+@media (max-width:768px){
+  .grid2,.grid3,.scorecard,.tanks{grid-template-columns:1fr;}
+  .navname small{display:none;}
+  .navname{font-size:14px;}
+  .section{padding:56px 0 24px;}
+  .flip,.flip-inner{min-height:300px;}
+  .map-track{grid-template-columns:repeat(2,1fr);}
+}
+@media (max-width:520px){
+  .toolgrid{grid-template-columns:1fr;}
+  .cardpool{grid-template-columns:1fr;}
+  .timeline-slots{grid-template-columns:repeat(2,1fr);}
+  .card{padding:18px;}
+  .hero-inner h1{font-size:29px;}
+}
+</style>
+</head>
+<body>
+<div id="toast" role="status" aria-live="polite"></div>
+<div id="progressWrap"><div id="progressBar"></div></div>
+
+<nav id="topnav">
+  <button type="button" class="fsBtn" id="fsBtn" aria-label="Open full screen in a new tab" title="Open full screen in a new tab">&#8599;</button>
+  <button type="button" class="fsBtn" id="topBtn" aria-label="Back to top" title="Back to top">&#8593;</button>
+  <a class="navlogo" href="#hero" aria-label="Learn with Dinesh Sir, home">
+    <span class="logobadge">द</span>
+    <span class="navname">Learn with Dinesh Sir<small>Unit IV &middot; Below the Line</small></span>
+  </a>
+  <div id="navlinks">
+    <a class="pill" href="#map">Map</a>
+    <a class="pill" href="#block1">Promotion</a>
+    <a class="pill" href="#block2">Virality</a>
+    <a class="pill" href="#block3">PR</a>
+    <a class="pill" href="#block4">Crisis</a>
+    <a class="pill" href="#block5">Experiential</a>
+    <a class="pill" href="#block6">Ethics</a>
+    <a class="pill" href="#studio">Studio</a>
+  </div>
+</nav>
+
+<header id="hero">
+  <div class="hero-inner">
+    <span class="hero-kicker">Unit IV &middot; Integrated Marketing Communication</span>
+    <h1>Below-the-Line Tools: <em>Sales Promotion, PR and Experiential Marketing</em></h1>
+    <p class="hero-meta">12 Hours &nbsp;|&nbsp; Conceptual and Applied &nbsp;|&nbsp; For Marketing Professionals</p>
+    <p class="hero-tag">The tools that move stock, hearts, and headlines. Master them, and your next campaign review stops being a defence and starts being a demonstration.</p>
+    <div class="cta-row">
+      <a class="cta primary" href="#map">Start the Journey</a>
+      <a class="cta ghost" href="#studio">Jump to the Studio</a>
+    </div>
+  </div>
+  <span class="hero-scrollhint">Scroll</span>
+</header>
+
+<!-- ================= LEARNING MAP ================= -->
+<section class="section" id="map">
+  <div class="container">
+    <span class="blocktag reveal">Your Learning Map</span>
+    <h2 class="section-title reveal">Seven moves, one discipline</h2>
+    <p class="lede reveal">Above the line buys attention. Below the line converts it: into trial, into talk, into trust, into the kind of goodwill that saves you when things go wrong. Tap any block to jump straight in. Each one ends with field work, because your growth happens in the market, not in the slide deck.</p>
+    <div class="map-track">
+      <a class="map-node reveal" href="#block1"><span class="map-num">1</span><b>Sales Promotion</b><span>Consumer and trade tools, and the discount trap</span></a>
+      <a class="map-node reveal d1" href="#block2"><span class="map-num">2</span><b>Shareability &amp; Virality</b><span>Word of mouth as a designed outcome</span></a>
+      <a class="map-node reveal d2" href="#block3"><span class="map-num">3</span><b>Public Relations</b><span>Earned media and how journalists think</span></a>
+      <a class="map-node reveal d3" href="#block4"><span class="map-num">4</span><b>Crisis &amp; Brand Values</b><span>The first 24 hours and the goodwill reservoir</span></a>
+      <a class="map-node reveal" href="#block5"><span class="map-num">5</span><b>Experiential &amp; Sponsorship</b><span>Memory-making beyond logo-placing</span></a>
+      <a class="map-node reveal d1" href="#block6"><span class="map-num">6</span><b>Regulation &amp; Ethics</b><span>ASCI, disclosure, and your signature</span></a>
+      <a class="map-node reveal d2" href="#studio"><span class="map-num">7</span><b>Practical Studio</b><span>Design and defend your own promotion</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= BLOCK 1 ================= -->
+<section class="section" id="block1">
+  <div class="container">
+    <span class="blocktag reveal">Block 1 &middot; Sales Promotion</span>
+    <h2 class="section-title reveal">The fastest lever in your kit, and the easiest one to break</h2>
+    <p class="lede reveal">Nothing moves stock like a promotion. Nothing erodes a price premium like a promotion. Both statements are true, and holding them together is what separates a brand manager from a discount dispenser. Start by separating the two audiences every promotion serves.<span class="foot">Belch and Belch, Ch. 16</span></p>
+
+    <h3 class="serif reveal" style="color:var(--maroon);font-size:22px;margin-bottom:14px;">Consumer vs Trade: two games on one board</h3>
+    <p class="reveal" style="font-size:14px;color:var(--ink-soft);margin-bottom:16px;">Tap each card to flip it. One targets the shopper's heart, the other targets the distributor's margin sheet. Confusing the two is how budgets vanish.</p>
+    <div class="grid2">
+      <div class="flip reveal" tabindex="0" role="button" aria-label="Flip card: consumer promotions">
+        <div class="flip-inner">
+          <div class="flip-face flip-front">
+            <h3>Consumer Promotions</h3>
+            <p><b>Who it targets:</b> the end shopper, the household, the app user scrolling at 11 pm.</p>
+            <p style="margin-top:10px;"><b>The job:</b> pull the product off the shelf. Create trial, reward loyalty, nudge the basket bigger.</p>
+            <span class="flip-hint">Tap to see the toolkit &rarr;</span>
+          </div>
+          <div class="flip-face flip-back">
+            <h4>The consumer toolkit</h4>
+            <ul>
+              <li><b>Typical tools:</b> price-offs, contests, sampling, loyalty points, festive bundles, cashback, scratch cards.</li>
+              <li><b>Success metric:</b> trial rate, repeat rate, redemption rate, incremental volume net of subsidised volume.</li>
+              <li><b>Failure smell:</b> volume spikes during the promo, craters after. You rented sales, you did not build demand.</li>
+            </ul>
+            <span class="flip-hint">Tap to flip back</span>
+          </div>
+        </div>
+      </div>
+      <div class="flip reveal d1" tabindex="0" role="button" aria-label="Flip card: trade promotions">
+        <div class="flip-inner">
+          <div class="flip-face flip-front">
+            <h3>Trade Promotions</h3>
+            <p><b>Who it targets:</b> the distributor, the stockist, the modern trade buyer, the kirana counter.</p>
+            <p style="margin-top:10px;"><b>The job:</b> push the product into the channel. Win shelf space, displays, and the retailer's recommendation.</p>
+            <span class="flip-hint">Tap to see the toolkit &rarr;</span>
+          </div>
+          <div class="flip-face flip-back">
+            <h4>The trade toolkit</h4>
+            <ul>
+              <li><b>Typical tools:</b> margin slabs, quantity purchase schemes, display allowances, dealer contests, credit terms, free goods.</li>
+              <li><b>Success metric:</b> weighted distribution, share of shelf, sell-through (not just sell-in), stock turns at the counter.</li>
+              <li><b>Failure smell:</b> the channel is loaded, the godown is full, and next quarter's orders die. Sell-in without sell-through is a loan, not a sale.</li>
+            </ul>
+            <span class="flip-hint">Tap to flip back</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- WOW 1: Promotion Tool Selector -->
+    <div class="card reveal mb" id="toolSelector">
+      <h3>Wow Widget: The Promotion Tool Selector</h3>
+      <p style="color:var(--ink-soft);font-size:14px;">Pick the business goal you are walking into your next meeting with. Watch which tools light up, and read why the dimmed ones would waste your budget.</p>
+      <div class="chips" id="goalChips">
+        <button class="chip" data-goal="trial">Drive trial</button>
+        <button class="chip" data-goal="repeat">Repeat purchase</button>
+        <button class="chip" data-goal="clearance">Stock clearance</button>
+        <button class="chip" data-goal="trade">Trade push</button>
+        <button class="chip" data-goal="premium">Protect premium image</button>
+      </div>
+      <div class="toolgrid" id="toolGrid">
+        <div class="tool" data-tool="discount"><h4><span class="t-ico">&#8377;</span>Discount / Price-off</h4><p>Immediate price cut at the point of purchase. The bluntest instrument you own.</p><p class="t-why"></p></div>
+        <div class="tool" data-tool="contest"><h4><span class="t-ico">&#127942;</span>Contest / Sweepstake</h4><p>Prize-led engagement, from scratch cards to dealer display contests.</p><p class="t-why"></p></div>
+        <div class="tool" data-tool="sampling"><h4><span class="t-ico">&#129371;</span>Sampling</h4><p>Free trial of the product itself. Expensive per contact, unbeatable for conviction.</p><p class="t-why"></p></div>
+        <div class="tool" data-tool="loyalty"><h4><span class="t-ico">&#11088;</span>Loyalty Programme</h4><p>Points, tiers, and coins that reward the customer for coming back.</p><p class="t-why"></p></div>
+        <div class="tool" data-tool="bundling"><h4><span class="t-ico">&#127873;</span>Bundling</h4><p>Multi-packs, combos, and gift packs that raise basket value or lock in future use.</p><p class="t-why"></p></div>
+        <div class="tool" data-tool="tradescheme"><h4><span class="t-ico">&#128666;</span>Trade Scheme</h4><p>Margin slabs, free goods, and display money aimed at the channel, not the shopper.</p><p class="t-why"></p></div>
+      </div>
+      <p id="goalPrompt" style="margin-top:14px;font-size:13.5px;font-style:italic;font-family:Georgia,serif;color:var(--ink-soft);">Select a goal above to run the diagnostic.</p>
+    </div>
+
+    <!-- WOW 2: Discount Addiction Simulator -->
+    <div class="simbox reveal mb" id="discountSim">
+      <h3>Wow Widget: The Discount Addiction Simulator</h3>
+      <p class="sub">Drag the slider to set how many times a year your brand runs a price promotion. Watch what happens to short-term sales, and what quietly happens to your price premium underneath them.</p>
+      <div class="slider-row">
+        <label for="freqSlider">Promotions per year</label>
+        <input type="range" id="freqSlider" min="0" max="12" value="2" step="1" aria-label="Promotion frequency per year">
+        <span class="freq-read" id="freqRead">2</span>
+      </div>
+      <div class="legend"><span><i style="background:#E0A93A;"></i>Short-term sales spikes</span><span><i style="background:#ff9d6b;"></i>Brand price premium</span></div>
+      <div class="simcanvas-wrap"><canvas class="simcanvas" id="simCanvas" aria-label="Line chart showing sales spikes versus price premium erosion"></canvas></div>
+      <p class="verdict" id="simVerdict"></p>
+      <div class="presets">
+        <button class="preset" data-preset="2">Festive-only brand</button>
+        <button class="preset" data-preset="11">Always-on discounter</button>
+        <button class="preset" data-preset="0">Premium holdout</button>
+      </div>
+    </div>
+
+    <h3 class="serif reveal" style="color:var(--maroon);font-size:22px;margin:8px 0 14px;">Objectives, over-reliance, and integration</h3>
+    <div class="reveal">
+      <div class="accordion">
+        <button class="acc-head">What a promotion is actually for<span class="acc-ico">+</span></button>
+        <div class="acc-body"><div class="acc-inner">
+          <p>Every promotion should have one written objective before a single rupee moves: induce trial, accelerate purchase, load the pantry, defend against a competitive launch, clear seasonal stock, or energise the trade. One objective per promotion. When a promo is asked to do three jobs, it does none and the post-mortem blames the creative.</p>
+          <p>Kotler's discipline applies here: promotions change behaviour, advertising changes minds. Use the promotion to trigger the act, use the advertising to make the act mean something.<span class="foot">Kotler and Keller</span></p>
+          <p class="say"><b>Say this in your next review:</b> "Which single behaviour is this promotion buying, and what does that behaviour cost us per unit against its lifetime value?"</p>
+        </div></div>
+      </div>
+      <div class="accordion">
+        <button class="acc-head">The over-reliance trap: why discounts are a payday loan<span class="acc-ico">+</span></button>
+        <div class="acc-body"><div class="acc-inner">
+          <p>Run the simulator above at 10 or more promotions per year and you have seen the mechanism. Frequent price promotions teach three lessons you never intended to teach. The shopper learns the real price is the discounted price. The trade learns to stop ordering at full margin and wait for the scheme. Your own sales team learns that the quarter can always be rescued with one more offer.</p>
+          <p>The result is a brand that cannot sell at its own MRP. India's cashback wars proved this at billion-dollar scale: when the incentive paused, the behaviour paused with it, because the incentive was the brand.</p>
+          <p class="say"><b>Say this in your next review:</b> "What percentage of our annual volume was sold on deal, and is that number rising? If it is, we are not running promotions, promotions are running us."</p>
+        </div></div>
+      </div>
+      <div class="accordion">
+        <button class="acc-head">Integration: making the promo build the brand instead of bleeding it<span class="acc-ico">+</span></button>
+        <div class="acc-body"><div class="acc-inner">
+          <p>An integrated promotion carries the brand's idea inside the mechanic. Cadbury does not discount chocolate at Diwali; it sells Celebrations, a gifting ritual in a purple box, at a premium. The promotion (festive gift packs) and the advertising (Kuch Meetha Ho Jaaye) tell one story. The mechanic is the message.</p>
+          <p>Contrast that with a naked 40 percent off. It borrows this quarter's volume from next quarter's price integrity. The integration test is simple: if you deleted the logo from your promotion, would anyone know it was yours? If not, you have rented a coupon, not run a campaign.</p>
+          <p class="say"><b>Say this in your next review:</b> "Show me the promotion and the ad side by side. If they could belong to two different brands, we redo one of them."</p>
+        </div></div>
+      </div>
+    </div>
+
+    <h3 class="serif reveal" style="color:var(--maroon);font-size:22px;margin:26px 0 14px;">Indian cases: tap each to open the lesson</h3>
+    <div class="grid2">
+      <div class="card case-card reveal" tabindex="0">
+        <span class="case-brand">Cadbury Celebrations</span>
+        <h4>Festive gifting bundles: the premium promotion</h4>
+        <p>Cadbury converted a chocolate bar into a Diwali ritual. The bundle is the promotion, yet the price went up, not down.</p>
+        <div class="case-more">
+          <p>By packaging assortments into gift boxes tied to Raksha Bandhan and Diwali, Cadbury created a promotion that adds occasion value instead of subtracting price. The shopper is not buying more chocolate, they are buying a socially safe gift, and they happily pay a premium for the packaging and the ritual.</p>
+          <p class="lesson"><b>Boardroom takeaway:</b> the highest form of sales promotion changes the occasion, not the price. Ask what ritual your category owns, or could own.</p>
+        </div>
+        <span class="case-toggle">Read the strategy &darr;</span>
+      </div>
+      <div class="card case-card reveal d1" tabindex="0">
+        <span class="case-brand">Big Bazaar</span>
+        <h4>Sabse Sasta Din: the event-ised discount</h4>
+        <p>One day, one promise, national queues. Big Bazaar turned a price-off into an annual festival around Republic Day.</p>
+        <div class="case-more">
+          <p>By compressing discounts into a dated, named event, Big Bazaar created urgency and anticipation instead of constant erosion. The scarcity was the strategy: shoppers planned for it, media covered it, and the rest of the year the store could hold price. The risk showed later, when everyday low price positioning diluted the event's specialness.</p>
+          <p class="lesson"><b>Boardroom takeaway:</b> a discount with a date is an event; a discount without a date is a habit. Habits you fund, events you own.</p>
+        </div>
+        <span class="case-toggle">Read the strategy &darr;</span>
+      </div>
+      <div class="card case-card reveal" tabindex="0">
+        <span class="case-brand">Paytm vs PhonePe</span>
+        <h4>The cashback wars: a margin lesson written in crores</h4>
+        <p>India's fintechs bought transactions with cashback. The transactions came. The loyalty did not.</p>
+        <div class="case-more">
+          <p>Cashback acquired users at extraordinary speed, but it acquired deal-seekers, not believers. The moment incentives thinned, multi-homing users simply followed the next offer. The wallets that survived did so by building use cases (bills, tickets, credit) that made the app useful at full price. The cashback got the install; only utility kept the habit.</p>
+          <p class="lesson"><b>Boardroom takeaway:</b> a promotion can buy behaviour, never belief. Budget for what keeps the customer after the incentive stops, or the incentive becomes the product.</p>
+        </div>
+        <span class="case-toggle">Read the strategy &darr;</span>
+      </div>
+      <div class="card case-card reveal d1" tabindex="0">
+        <span class="case-brand">Tata Neu &amp; Flipkart SuperCoins</span>
+        <h4>Loyalty design: points as an ecosystem glue</h4>
+        <p>NeuCoins and SuperCoins are not discounts. They are switching costs dressed as rewards.</p>
+        <div class="case-more">
+          <p>A coin earned on groceries and burned on flights makes the ecosystem, not the single purchase, the unit of loyalty. The design questions are earn rate, burn flexibility, and breakage. Done well, the programme protects full price while still rewarding the heavy user. Done badly, it becomes a deferred discount with an accounting liability attached.</p>
+          <p class="lesson"><b>Boardroom takeaway:</b> loyalty currency is only as strong as the places it can be spent. Evaluate a programme by its burn side, not its earn side.</p>
+        </div>
+        <span class="case-toggle">Read the strategy &darr;</span>
+      </div>
+    </div>
+
+    <div class="card video-card reveal mb">
+      <div class="video-wrap">
+        <button type="button" class="videoFacade" data-vid="wd8YU8r2kSs" data-title="Cadbury Celebrations Diwali campaign" style="background-image:url(https://i.ytimg.com/vi/wd8YU8r2kSs/hqdefault.jpg)" aria-label="Play: Cadbury Celebrations Diwali campaign"><span class="vfPlay"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span></button>
+      </div>
+      <a class="vWatchLink" href="https://www.youtube.com/watch?v=wd8YU8r2kSs" target="_blank" rel="noopener">Watch on YouTube &#8599;</a>
+      <div class="video-note">
+        <span class="vtag">Watch &amp; Decode</span>
+        <p><b>Cadbury Celebrations, Diwali gifting campaign.</b> Notice how the promotion never mentions price. The gift pack is the mechanic, the festival is the trigger, and the emotion is the advertising. This is what promotion-advertising integration looks like when the promo builds equity instead of borrowing against it.</p>
+      </div>
+    </div>
+
+    <div class="field-card reveal mb">
+      <span class="field-stamp">Field Work</span>
+      <h3>&#128717;&#65039; Get Out of the Slide Deck: The Shelf Safari</h3>
+      <p class="fc-sub">Store visit &middot; 90 minutes &middot; due before your next campaign review</p>
+      <p>Walk into a nearby supermarket or a modern trade store near a kirana cluster. You are not shopping, you are auditing.</p>
+      <ul class="checklist">
+        <li><span class="box">&#10003;</span>Photograph 5 in-store promotions: end caps, danglers, bundle packs, price flashes, dealer boards.</li>
+        <li><span class="box">&#10003;</span>Classify each one: consumer-driven (pull) or trade-driven (push)? What is the tell?</li>
+        <li><span class="box">&#10003;</span>Judge which single promotion most risks training the shopper to never pay full price. Defend your pick.</li>
+        <li><span class="box">&#10003;</span>Write a 5-line memo to that brand's manager: what you would keep, what you would kill.</li>
+        <li><span class="box">&#10003;</span>Bonus: ask the store staff which scheme "moves the most". Their answer is field data your dashboard will never show you.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+<!-- ================= BLOCK 2 ================= -->
+<section class="section" id="block2">
+  <div class="container">
+    <span class="blocktag reveal">Block 2 &middot; Shareability &amp; Virality</span>
+    <h2 class="section-title reveal">Word of mouth is not luck. It is engineering.</h2>
+    <p class="lede reveal">Every brand manager prays for virality. The professionals stop praying and start designing: they build the share into the promotion before the promotion ships. If the forward button is an afterthought, the forwards will be too.</p>
+
+    <div class="reveal">
+      <div class="accordion">
+        <button class="acc-head">Shareability built in, not bolted on<span class="acc-ico">+</span></button>
+        <div class="acc-body"><div class="acc-inner">
+          <p>A shareable promotion answers three questions at the design stage, not the launch stage. What emotion makes someone hit forward: surprise, status, humour, usefulness, belonging? What exactly travels: a referral code, a meme template, an unboxing moment, a leaderboard rank? And who carries it: friends, family groups, or micro-creators who treat your promo as content?</p>
+          <p>If your campaign deck has a "virality" slide with no answers to those three, that slide is a wish, not a plan.</p>
+          <p class="say"><b>Say this in your next review:</b> "Show me the share unit. What is the exact screenshot, line, or link a customer forwards, and what does the forwarder gain socially by sending it?"</p>
+        </div></div>
+      </div>
+      <div class="accordion">
+        <button class="acc-head">Peer amplification: friends, family, and creators as media<span class="acc-ico">+</span></button>
+        <div class="acc-body"><div class="acc-inner">
+          <p>In India, the family WhatsApp group is a media channel with better targeting than any DSP. A promotion forwarded by your cousin carries a trust signal that no pre-roll can buy. Dream11 understood this: the referral is not an ad, it is an invitation into a game your friend is already playing, with both sides rewarded.</p>
+          <p>Micro-creators are the second engine. Give them a mechanic worth performing (an unboxing, a challenge, a reveal) and they manufacture reach for the price of the product. The brand supplies the stage; the creator supplies the audience.</p>
+          <p class="say"><b>Say this in your next review:</b> "Which of our budget lines pays people, and which one makes people want to participate for free? Grow the second."</p>
+        </div></div>
+      </div>
+      <div class="accordion">
+        <button class="acc-head">Word of mouth as a designed outcome<span class="acc-ico">+</span></button>
+        <div class="acc-body"><div class="acc-inner">
+          <p>Accidental word of mouth is a compliment. Designed word of mouth is a channel. The difference is structural: designed WOM has a trigger engineered into the product moment (CRED's absurd reward reveal), a frictionless share unit (a screenshot that explains itself), and a seeded network (creators and communities primed to carry it in the first 48 hours).</p>
+          <p>Measure it like a channel too: K-factor (invites sent times conversion per invite), share rate per redemption, and time-to-second-generation share. What gets measured gets designed.</p>
+          <p class="say"><b>Say this in your next review:</b> "What is the K-factor of this promotion, and which design choice are we changing to raise it?"</p>
+        </div></div>
+      </div>
+    </div>
+
+    <!-- WOW 3: Virality Blueprint Builder -->
+    <div class="card reveal mb mt" id="blueprintBuilder">
+      <h3>Wow Widget: The Virality Blueprint Builder</h3>
+      <p style="color:var(--ink-soft);font-size:14px;">Assemble a shareable promotion in three decisions. The ring scores your blueprint live and the critique tells you what a sharp planner would say about it.</p>
+      <div class="builder-group">
+        <span class="bg-label">1 &middot; Pick the trigger (the emotion that fires the forward)</span>
+        <div class="chips" data-group="trigger">
+          <button class="chip" data-val="surprise">Surprise</button>
+          <button class="chip" data-val="status">Status</button>
+          <button class="chip" data-val="humour">Humour</button>
+          <button class="chip" data-val="utility">Utility</button>
+          <button class="chip" data-val="belonging">Belonging</button>
+        </div>
+      </div>
+      <div class="builder-group">
+        <span class="bg-label">2 &middot; Pick the share unit (the thing that actually travels)</span>
+        <div class="chips" data-group="unit">
+          <button class="chip" data-val="referral">Referral code</button>
+          <button class="chip" data-val="meme">Meme template</button>
+          <button class="chip" data-val="unboxing">Unboxing moment</button>
+          <button class="chip" data-val="leaderboard">Leaderboard</button>
+        </div>
+      </div>
+      <div class="builder-group">
+        <span class="bg-label">3 &middot; Pick the amplifier (who carries it)</span>
+        <div class="chips" data-group="amp">
+          <button class="chip" data-val="friends">Friends</button>
+          <button class="chip" data-val="family">Family groups</button>
+          <button class="chip" data-val="creators">Micro-creators</button>
+        </div>
+      </div>
+      <div class="gauge-wrap">
+        <div class="ring">
+          <svg viewBox="0 0 150 150" width="150" height="150" aria-hidden="true">
+            <defs>
+              <linearGradient id="ringGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#6B1E23"/><stop offset="100%" stop-color="#D4A017"/>
+              </linearGradient>
+            </defs>
+            <circle class="ring-bg" cx="75" cy="75" r="62"></circle>
+            <circle class="ring-val" id="ringVal" cx="75" cy="75" r="62" stroke-dasharray="389.6" stroke-dashoffset="389.6"></circle>
+          </svg>
+          <div class="ring-num"><span id="ringNum">0</span><small>Shareability</small></div>
+        </div>
+        <p class="critique" id="blueprintCritique">Make your three picks. A blueprint with a missing part scores like a cheque with a missing signature.</p>
+      </div>
+    </div>
+
+    <!-- WOW 4: WOM Ripple -->
+    <div class="ripple-box reveal mb">
+      <h3 class="serif" style="color:var(--mustard-light);margin-bottom:6px;">Wow Widget: The Word-of-Mouth Ripple</h3>
+      <p style="font-size:14px;color:rgba(251,246,237,.8);margin-bottom:14px;">One seeded customer starts talking. Watch how far the ripple travels when sharing is designed versus when it is left to chance. Tap replay any time.</p>
+      <div class="toggle-row">
+        <button class="tab on" id="womDesigned">Designed WOM</button>
+        <button class="tab" id="womAccidental">Accidental WOM</button>
+        <button class="tab" id="womReplay">&#8635; Replay</button>
+      </div>
+      <svg id="womSvg" viewBox="0 0 600 320" role="img" aria-label="Network animation showing word of mouth spreading between customers"></svg>
+      <p class="ripple-cap" id="womCap">Designed WOM: a built-in reward for both sender and receiver, a one-tap share unit, and seeded creators. Dense network, fast ripple, second and third generations light up.</p>
+    </div>
+
+    <h3 class="serif reveal" style="color:var(--maroon);font-size:22px;margin:8px 0 14px;">Indian cases: engineered to travel</h3>
+    <div class="grid2">
+      <div class="card case-card reveal" tabindex="0">
+        <span class="case-brand">CRED</span>
+        <h4>Absurdist rewards engineered for screenshots</h4>
+        <p>A curtain rises on a reward so strange you must show someone. That is not creativity for its own sake, it is share-unit design.</p>
+        <div class="case-more">
+          <p>CRED's reward reveals and its deliberately absurd ads (Rahul Dravid as the Indiranagar ka Gunda) are built to be clipped, screenshotted, and reposted. The brand accepts looking ridiculous because the meme carries the brand name into feeds its media budget could never afford. The screenshot is the medium.</p>
+          <p class="lesson"><b>Boardroom takeaway:</b> ask of every reward and reveal, "would a user screenshot this?" If the answer is no, you paid for a transaction and forfeited the broadcast.</p>
+        </div>
+        <span class="case-toggle">Read the strategy &darr;</span>
+      </div>
+      <div class="card case-card reveal d1" tabindex="0">
+        <span class="case-brand">Zomato</span>
+        <h4>Notification humour forwarded on WhatsApp</h4>
+        <p>A push notification is a promotion delivery vehicle. Zomato made it funny enough to forward, converting an owned channel into an earned one.</p>
+        <div class="case-more">
+          <p>Zomato's notification and social copy runs on insider humour about Indian food habits. Users screenshot the notification and post it themselves, which means a retention message doubles as acquisition media. The craft lesson: the share unit here is text, the cheapest asset in marketing, elevated by voice.</p>
+          <p class="lesson"><b>Boardroom takeaway:</b> every owned touchpoint (notification, invoice, delivery box) is a potential share unit. Write it like someone might forward it, because someone might.</p>
+        </div>
+        <span class="case-toggle">Read the strategy &darr;</span>
+      </div>
+      <div class="card case-card reveal" tabindex="0">
+        <span class="case-brand">Dream11</span>
+        <h4>Referral mechanics inside a social game</h4>
+        <p>The referral is not an ad interrupting a friendship. It is an invitation to compete inside one.</p>
+        <div class="case-more">
+          <p>Dream11's growth loop rewards both inviter and invitee, and the product itself is social: your team versus your friends' teams in the same match. The promotion (referral bonus) and the product (contest with friends) reinforce each other, so each new user has a built-in reason to recruit the next. The share is the gameplay.</p>
+          <p class="lesson"><b>Boardroom takeaway:</b> the strongest referral programmes make the invited friend improve the product experience for the inviter. Check whether yours does, or whether it just pays a bounty.</p>
+        </div>
+        <span class="case-toggle">Read the strategy &darr;</span>
+      </div>
+      <div class="card case-card reveal d1" tabindex="0">
+        <span class="case-brand">Fevicol</span>
+        <h4>Meme-ability as permanent free media</h4>
+        <p>Decades of jokes about an adhesive. Fevicol built a brand so witty that the internet does its advertising between campaigns.</p>
+        <div class="case-more">
+          <p>Fevicol's long-running visual wit (the overloaded bus, the unbreakable bond gags) created a template the public can riff on. When a brand's humour style is this recognisable, users generate the content themselves, and every meme reinforces the core claim: the bond that never breaks. Consistency made the brand remixable.</p>
+          <p class="lesson"><b>Boardroom takeaway:</b> a consistent creative device, held for years, becomes public property in the best sense. Meme-ability is compound interest on creative consistency.</p>
+        </div>
+        <span class="case-toggle">Read the strategy &darr;</span>
+      </div>
+    </div>
+
+    <div class="card video-card reveal mb">
+      <div class="video-wrap">
+        <button type="button" class="videoFacade" data-vid="j8KpV-4_mRg" data-title="CRED official film: Great for the good, featuring Rahul Dravid" style="background-image:url(https://i.ytimg.com/vi/j8KpV-4_mRg/hqdefault.jpg)" aria-label="Play: CRED official film: Great for the good, featuring Rahul Dravid"><span class="vfPlay"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span></button>
+      </div>
+      <a class="vWatchLink" href="https://www.youtube.com/watch?v=j8KpV-4_mRg" target="_blank" rel="noopener">Watch on YouTube &#8599;</a>
+      <div class="video-note">
+        <span class="vtag">Watch &amp; Decode</span>
+        <p><b>CRED, Great for the Good featuring Rahul Dravid (official film).</b> Deconstruct it with the Blueprint Builder's grammar: trigger is surprise (the calmest man in cricket, unhinged), share unit is the clip and its one meme line, amplifier is every cricket fan and creator who remixed it. Designed WOM, textbook execution.</p>
+      </div>
+    </div>
+
+    <div class="field-card reveal mb">
+      <span class="field-stamp">Field Work</span>
+      <h3>&#128241; The Forward Forensics</h3>
+      <p class="fc-sub">Choose your mission &middot; 60 minutes &middot; evidence over opinion</p>
+      <div class="toggle-row" style="margin:10px 0 4px;">
+        <button class="tab on" data-mission="a" style="border-color:var(--maroon);color:var(--maroon);">Mission A: Your WhatsApp</button>
+        <button class="tab" data-mission="b" style="border-color:var(--maroon);color:var(--maroon);">Mission B: Internet Research</button>
+      </div>
+      <div id="missionA">
+        <p>Pick one promotion you personally shared or received on WhatsApp in the last month. Then run the forensics:</p>
+        <ul class="checklist">
+          <li><span class="box">&#10003;</span>Trace the share journey: who sent it, to whom, and in which group context?</li>
+          <li><span class="box">&#10003;</span>Why did the sender send it? What did they gain: money, status, humour credit, usefulness?</li>
+          <li><span class="box">&#10003;</span>Deconstruct the blueprint: name the trigger, the share unit, and the amplifier.</li>
+          <li><span class="box">&#10003;</span>Verdict in 3 lines: was this designed WOM or accidental WOM? Cite the design evidence.</li>
+        </ul>
+      </div>
+      <div id="missionB" style="display:none;">
+        <p>Search the internet for one Indian referral programme (fintech, gaming, D2C, anything current). Then run the forensics:</p>
+        <ul class="checklist">
+          <li><span class="box">&#10003;</span>Document the mechanics: reward for inviter, reward for invitee, caps, and conditions.</li>
+          <li><span class="box">&#10003;</span>Map the blueprint: trigger, share unit, amplifier. Where is the friction?</li>
+          <li><span class="box">&#10003;</span>Estimate why it spread or stalled. Look for reviews, forum chatter, or app-store comments as evidence.</li>
+          <li><span class="box">&#10003;</span>Write the one design change you would make, and the metric it should move.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- ================= BLOCK 3 ================= -->
+<section class="section" id="block3">
+  <div class="container">
+    <span class="blocktag reveal">Block 3 &middot; Public Relations</span>
+    <h2 class="section-title reveal">Earned trust beats bought attention</h2>
+    <p class="lede reveal">Advertising is you saying you are good. PR is someone else saying it, in their own words, to an audience that trusts them. That third-party voice is why one page of genuine coverage can outweigh a month of paid impressions, and why it cannot simply be purchased.<span class="foot">Belch and Belch, Ch. 17</span></p>
+
+    <h3 class="serif reveal" style="color:var(--maroon);font-size:22px;margin-bottom:14px;">Paid vs earned: tap each row to expand</h3>
+    <div class="reveal mb" style="overflow-x:auto;-webkit-overflow-scrolling:touch;">
+      <table class="cmp" id="cmpTable">
+        <thead><tr><th style="width:100%;">Dimension: Advertising (paid) vs PR (earned)</th></tr></thead>
+        <tbody>
+          <tr><td>
+            <button class="row-head">Who controls the message? <span class="mini">TAP</span></button>
+            <div class="row-body"><div><b>Advertising:</b> you do, to the last comma. You buy the space, you fill it.<br><b>PR:</b> the journalist does. You can brief, pitch, and hope, but the byline is theirs. Control traded for credibility.</div></div>
+          </td></tr>
+          <tr><td>
+            <button class="row-head">What does it cost? <span class="mini">TAP</span></button>
+            <div class="row-body"><div><b>Advertising:</b> media rates, transparent and invoiced.<br><b>PR:</b> no media invoice, but real costs: agency retainers, newsroom-grade content, relationships built over years, and the discipline of actually being newsworthy.</div></div>
+          </td></tr>
+          <tr><td>
+            <button class="row-head">How much does the audience trust it? <span class="mini">TAP</span></button>
+            <div class="row-body"><div><b>Advertising:</b> discounted by default; everyone knows you paid to say it.<br><b>PR:</b> carries the outlet's credibility. A business daily writing about your supply chain innovation does what no self-declared claim can.</div></div>
+          </td></tr>
+          <tr><td>
+            <button class="row-head">How repeatable is it? <span class="mini">TAP</span></button>
+            <div class="row-body"><div><b>Advertising:</b> infinitely, as long as budget lasts. Frequency is a dial.<br><b>PR:</b> a story runs once. You cannot re-run yesterday's news, you must create tomorrow's.</div></div>
+          </td></tr>
+          <tr><td>
+            <button class="row-head">What is the failure mode? <span class="mini">TAP</span></button>
+            <div class="row-body"><div><b>Advertising:</b> being ignored. Expensive silence.<br><b>PR:</b> being covered badly. The same journalists who amplify your launch will amplify your lapse. Earned media cuts both ways.</div></div>
+          </td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- WOW 5: Journalist Inbox -->
+    <div class="reveal mb" id="inboxSim">
+      <h3 class="serif" style="color:var(--maroon);font-size:22px;margin-bottom:8px;">Wow Widget: The Journalist Inbox Simulator</h3>
+      <p style="font-size:14px;color:var(--ink-soft);margin-bottom:14px;">A business journalist gets 200 pitches a day and opens perhaps five. Below are four subject lines that landed in her inbox this morning. Tap the one she would actually open. Choose wrong, and watch what happens to your pitch.</p>
+      <div class="inbox">
+        <div class="inbox-bar"><span class="dot"></span>priya.desai@businessdaily.in &middot; Inbox (4 unread)</div>
+        <button class="email-row" data-pick="wrong1">
+          <span class="from">Corp Comms, FreshFoods India</span>
+          <span class="subj">Press Release: FreshFoods India Pvt. Ltd. Announces Synergistic Brand Realignment Initiative</span>
+          <span class="stampmark">Deleted in 3 seconds</span>
+        </button>
+        <button class="email-row" data-pick="wrong2">
+          <span class="from">Agency on behalf of FreshFoods</span>
+          <span class="subj">FreshFoods wins 'Best Emerging FMCG Brand' at 14th Annual Excellence Awards!!!</span>
+          <span class="stampmark">Marked as spam</span>
+        </button>
+        <button class="email-row" data-pick="right">
+          <span class="from">Head of Supply Chain, FreshFoods</span>
+          <span class="subj">Data: 40% of India's tomatoes rot before sale. We just cut that to 12% in two districts. Field visit?</span>
+          <span class="stampmark"></span>
+        </button>
+        <button class="email-row" data-pick="wrong3">
+          <span class="from">Corp Comms, FreshFoods India</span>
+          <span class="subj">Our CEO is available for interviews about our exciting journey</span>
+          <span class="stampmark">No news here</span>
+        </button>
+        <div class="pr-reveal" id="prReveal">
+          <div class="pr-doc">
+            <p style="font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--ok);margin-bottom:10px;">&#10003; Opened, replied, field visit booked. Here is why, annotated:</p>
+            <span class="ann"><b>The headline: news value first</b>"40% of India's tomatoes rot before sale. We cut that to 12% in two districts." A number, a problem the reader's audience cares about, and a verifiable claim. The brand is the vehicle of the story, not the point of it. This passes the "so what" test in the subject line itself.</span>
+            <span class="ann"><b>The hook: exclusivity and access</b>"Field visit?" offers the journalist something money cannot buy: first access, real farmers, photographable proof. Deadlines and exclusives are the journalist's currency; this pitch pays in it.</span>
+            <span class="ann"><b>The quote: a human saying something real</b>Inside the release: "We lose a truck of tomatoes to heat every week. Now we lose one a month," says a mandi trader in Nashik. A quote that sounds like a person, not a plaque. Journalists delete quotes that read like mission statements.</span>
+            <span class="ann"><b>The boilerplate: short, factual, findable</b>Two lines at the end: what the company does, scale, one link to a press kit with images and data. No adjectives. The boilerplate is a service counter, not a billboard.</span>
+            <p style="margin-top:12px;font-style:italic;font-family:Georgia,serif;">The lesson for your next launch: journalists do not cover products, they cover change. Bring them evidence of change, and bring it before their deadline, not after your event.</p>
+          </div>
+        </div>
+      </div>
+      <p id="inboxHint" style="margin-top:10px;font-size:13.5px;font-family:Georgia,serif;font-style:italic;color:var(--ink-soft);"></p>
+    </div>
+
+    <!-- WOW 6: CSR Litmus -->
+    <div class="card reveal mb" id="csrLitmus">
+      <h3>Wow Widget: The CSR Authenticity Litmus</h3>
+      <p style="color:var(--ink-soft);font-size:14px;margin-bottom:16px;">Six CSR-flavoured claims. Swipe the card (or use the buttons): <b style="color:var(--ok);">Walk</b> if the commitment is operationally real, <b style="color:var(--warn);">Talk</b> if it smells performative. The meter tracks your instinct; each reveal shows the tell-tale signs professionals check: the budget trail, the longevity, and the link to core business.</p>
+      <div class="meter-wrap">
+        <svg viewBox="0 0 200 110" aria-hidden="true">
+          <path d="M15 95 A 85 85 0 0 1 185 95" fill="none" stroke="rgba(107,30,35,.15)" stroke-width="14" stroke-linecap="round"/>
+          <path d="M15 95 A 85 85 0 0 1 62 24" fill="none" stroke="#B3541E" stroke-width="14" stroke-linecap="round" opacity=".55"/>
+          <path d="M138 24 A 85 85 0 0 1 185 95" fill="none" stroke="#2E7D4F" stroke-width="14" stroke-linecap="round" opacity=".55"/>
+          <line class="meter-needle" id="meterNeedle" x1="100" y1="95" x2="100" y2="26" stroke="#6B1E23" stroke-width="5" stroke-linecap="round"/>
+          <circle cx="100" cy="95" r="8" fill="#6B1E23"/>
+          <text x="26" y="108" font-size="10" fill="#B3541E" font-weight="700">TALK</text>
+          <text x="152" y="108" font-size="10" fill="#2E7D4F" font-weight="700">WALK</text>
+        </svg>
+      </div>
+      <div class="litmus-stage" id="litmusStage"></div>
+      <div class="vote-row">
+        <button class="votebtn talk" id="voteTalk">&#8592; Talk</button>
+        <button class="votebtn walk" id="voteWalk">Walk &#8594;</button>
+      </div>
+      <div class="litmus-verdict" id="litmusVerdict">Swipe right for Walk, left for Talk. Your instinct gets sharper with each card.</div>
+    </div>
+
+    <div class="reveal">
+      <div class="accordion">
+        <button class="acc-head">Tata's century of trust vs the greenwash pattern<span class="acc-ico">+</span></button>
+        <div class="acc-body"><div class="acc-inner">
+          <p>Tata's reputation was not built by campaigns. It was built by two-thirds of Tata Sons sitting with philanthropic trusts, by Jamsetji funding institutes before it was fashionable, and by a century of behaving the same way in good quarters and bad. When Tata communicates values, the audience has decades of operational receipts.</p>
+          <p>The greenwash pattern is the inverse: sustainability in the ad budget but not the capex plan, a campaign with a launch date but no annual report line, claims about the planet from a company that will not publish its supply chain. Audiences and regulators now run the same litmus you just practised.</p>
+          <p class="say"><b>Say this in your next review:</b> "Before we communicate this value, show me the operational receipt we will point to when someone checks."</p>
+        </div></div>
+      </div>
+    </div>
+
+    <div class="card video-card reveal mb mt">
+      <div class="video-wrap">
+        <button type="button" class="videoFacade" data-vid="GqGksNRYu8s" data-title="Rachel Botsman: We've stopped trusting institutions and started trusting strangers, TED" style="background-image:url(https://i.ytimg.com/vi/GqGksNRYu8s/hqdefault.jpg)" aria-label="Play: Rachel Botsman: We've stopped trusting institutions and started trusting strangers, TED"><span class="vfPlay"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span></button>
+      </div>
+      <a class="vWatchLink" href="https://www.youtube.com/watch?v=GqGksNRYu8s" target="_blank" rel="noopener">Watch on YouTube &#8599;</a>
+      <div class="video-note">
+        <span class="vtag">Watch &amp; Decode</span>
+        <p><b>Rachel Botsman, We've Stopped Trusting Institutions and Started Trusting Strangers (TED).</b> Botsman maps the great migration of trust: away from institutions and press releases, towards strangers' reviews, peers' forwards and creators' verdicts. That is exactly the terrain modern PR operates on. Watch it asking one question: if trust now lives with the crowd, who are the ten strangers whose word carries my brand, and what have I given them worth saying?</p>
+      </div>
+    </div>
+
+    <div class="field-card reveal mb">
+      <span class="field-stamp">Field Work</span>
+      <h3>&#128240; Inside the Pitch Machine</h3>
+      <p class="fc-sub">Agency visit or desk research &middot; pick one path &middot; one week</p>
+      <p><b>Path 1, the visit:</b> spend an hour at a PR agency, or book a 20-minute call with one PR professional on LinkedIn.</p>
+      <ul class="checklist">
+        <li><span class="box">&#10003;</span>Ask: what percentage of your pitches get picked up? (Brace yourself for the number.)</li>
+        <li><span class="box">&#10003;</span>Ask: what makes a journalist actually reply? Collect two real examples.</li>
+        <li><span class="box">&#10003;</span>Ask: what is the fastest way a brand burns a media relationship?</li>
+      </ul>
+      <p style="margin-top:12px;"><b>Path 2, the desk:</b> pick one Indian brand and find three recent news articles about it.</p>
+      <ul class="checklist">
+        <li><span class="box">&#10003;</span>Classify each: organic journalism or placed PR? List your tells (quote patterns, exclusive data, timing near a launch, identical phrasing across outlets).</li>
+        <li><span class="box">&#10003;</span>Reverse-engineer the placed piece: what was the likely pitch, and why did the journalist take it?</li>
+      </ul>
+    </div>
+  </div>
+</section>
+<!-- ================= BLOCK 4 ================= -->
+<section class="section" id="block4">
+  <div class="container">
+    <span class="blocktag reveal">Block 4 &middot; Crisis &amp; Brand Values</span>
+    <h2 class="section-title reveal">The first 24 hours, and the 24 years before them</h2>
+    <p class="lede reveal">A crisis does not test your crisis plan. It tests everything you communicated before the crisis existed. Remember the creative anchor from Unit II: a brand that has consistently expressed one set of values has something to invoke when the sirens start. A brand that has only ever sold has nothing to say that anyone will believe.</p>
+
+    <h3 class="serif reveal" style="color:var(--maroon);font-size:22px;margin-bottom:14px;">The recovery arc: tap each stage</h3>
+    <div class="reveal mb">
+      <div class="accordion">
+        <button class="acc-head">Hour 0 to 4: acknowledge, fast and human<span class="acc-ico">+</span></button>
+        <div class="acc-body"><div class="acc-inner"><p>Silence is a statement, and the internet writes your story while you draft yours. The first move is a fast, human acknowledgement: we know, we care, we are on it. No blame, no legal hedging, no "alleged". Speed beats polish in the first hours because the vacuum is your real enemy.</p></div></div>
+      </div>
+      <div class="accordion">
+        <button class="acc-head">Hour 4 to 24: the holding statement<span class="acc-ico">+</span></button>
+        <div class="acc-body"><div class="acc-inner"><p>The holding statement buys time honestly. Its anatomy: what we know, what we do not yet know, what we are doing right now, when we will update you next. It never speculates, never minimises, and always names a next checkpoint. Miss that checkpoint and you have created a second crisis.</p></div></div>
+      </div>
+      <div class="accordion">
+        <button class="acc-head">Day 1 to 7: one voice, visible action<span class="acc-ico">+</span></button>
+        <div class="acc-body"><div class="acc-inner"><p>Internal alignment is external credibility. One spokesperson, one fact sheet, every employee briefed, because a contradicting quote from a regional manager can undo the CEO's statement. Then action the audience can see: recalls, audits, third-party testing. Deeds are the only press release people fully believe.</p></div></div>
+      </div>
+      <div class="accordion">
+        <button class="acc-head">Week 2 onwards: the recovery arc and proof<span class="acc-ico">+</span></button>
+        <div class="acc-body"><div class="acc-inner"><p>Recovery is earned with follow-up proof: published results, independent certification, and a return-to-market story that thanks the customer rather than congratulating the brand. Maggi's comeback did not say "we won". It said "we missed you too". That is a brand drawing from its reservoir, not its legal team.</p></div></div>
+      </div>
+    </div>
+
+    <!-- WOW 7: Crisis game -->
+    <div class="crisis-box reveal mb" id="crisisGame">
+      <h3 class="serif">Wow Widget: The First-24-Hours Timer Game</h3>
+      <div class="crisis-scenario">Scenario: a video claiming worms were found in your snack brand's packet is going viral. A regional news channel has picked it up. Your MD is on a flight for the next 3 hours. The clock below is running the first 24 simulated hours. Sequence the six moves in the order you would fire them. Tap a card to place it in the next slot; tap a placed card to take it back.</div>
+      <div class="countdown"><span id="cdRead">24:00</span><small id="cdSub">simulated hours remaining</small></div>
+      <div class="cardpool" id="cardPool"></div>
+      <div class="timeline-slots" id="slotRow"></div>
+      <div class="crisis-ctl">
+        <button class="preset" id="crisisScore">Score my sequence</button>
+        <button class="preset" id="crisisReset">&#8635; Reset</button>
+      </div>
+      <div class="crisis-result" id="crisisResult"></div>
+    </div>
+
+    <!-- WOW 8: Goodwill Reservoir -->
+    <div class="card reveal mb" id="reservoir">
+      <h3>Wow Widget: The Goodwill Reservoir Gauge</h3>
+      <p style="color:var(--ink-soft);font-size:14px;">Every year of consistent brand-value communication is a deposit. Toggle the years below to fill the tanks, then press the crisis button and watch who survives the drain. This is the reservoir concept made visible: the deep-tank brand communicates values every year; the shallow-tank brand only ever ran offers.</p>
+      <div class="yeartoggles" id="yearToggles">
+        <button class="yr" data-y="1">Yr 1</button><button class="yr" data-y="2">Yr 2</button><button class="yr" data-y="3">Yr 3</button><button class="yr" data-y="4">Yr 4</button><button class="yr" data-y="5">Yr 5</button><button class="yr" data-y="6">Yr 6</button><button class="yr" data-y="7">Yr 7</button><button class="yr" data-y="8">Yr 8</button>
+      </div>
+      <div class="tanks">
+        <div class="tankcard">
+          <h4>Brand A: values communicated yearly</h4>
+          <p class="tanksub">Tata-style: consistent trust deposits, decade after decade</p>
+          <svg class="tank-svg" viewBox="0 0 150 190" aria-hidden="true">
+            <rect x="25" y="10" width="100" height="160" rx="14" fill="none" stroke="#6B1E23" stroke-width="4"/>
+            <rect class="water" id="waterA" x="29" y="166" width="92" height="0" rx="10" fill="url(#waterGradA)"/>
+            <defs><linearGradient id="waterGradA" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#E0A93A"/><stop offset="100%" stop-color="#D4A017"/></linearGradient></defs>
+          </svg>
+          <div class="tank-read" id="readA">0% goodwill</div>
+        </div>
+        <div class="tankcard">
+          <h4>Brand B: offers only, values never</h4>
+          <p class="tanksub">Every rupee went to discounts; the tank was never filled</p>
+          <svg class="tank-svg" viewBox="0 0 150 190" aria-hidden="true">
+            <rect x="25" y="10" width="100" height="160" rx="14" fill="none" stroke="#6B1E23" stroke-width="4"/>
+            <rect class="water" id="waterB" x="29" y="166" width="92" height="0" rx="10" fill="#c9a96a"/>
+          </svg>
+          <div class="tank-read" id="readB">0% goodwill</div>
+        </div>
+      </div>
+      <div style="text-align:center;margin-top:6px;">
+        <button class="crisis-strike" id="strikeBtn">&#9889; Crisis strikes</button>
+      </div>
+      <p class="tank-caption" id="tankCaption">Fill the years first. Brand A deposits values every year; Brand B captures only a trickle from its offers.</p>
+    </div>
+
+    <h3 class="serif reveal" style="color:var(--maroon);font-size:22px;margin:8px 0 14px;">Indian cases: reservoirs, tested</h3>
+    <div class="grid3">
+      <div class="card case-card reveal" tabindex="0">
+        <span class="case-brand">Maggi, 2015</span>
+        <h4>The definitive reservoir story</h4>
+        <p>Banned nationwide over lead-content allegations, pulled from every shelf, then back to market leadership.</p>
+        <div class="case-more">
+          <p>Maggi survived a five-month ban because thirty years of "2-minute noodles" and mother-child storytelling had built an emotional reservoir money cannot rush. The comeback campaign, We Miss You Too, spoke to the relationship, not the lab report, while retesting and court proceedings handled the facts. Consumers wanted Maggi to be safe, and that wanting was the asset.</p>
+          <p class="lesson"><b>Boardroom takeaway:</b> the ban tested the product; the comeback drew on the brand. Fill the tank before you need it, because you cannot fill it during the fire.</p>
+        </div>
+        <span class="case-toggle">Read the strategy &darr;</span>
+      </div>
+      <div class="card case-card reveal d1" tabindex="0">
+        <span class="case-brand">Cadbury, 2003</span>
+        <h4>The worm crisis and the trust rebuild</h4>
+        <p>Worms in Dairy Milk packets, weeks before Diwali. Sales collapsed. The response became a textbook.</p>
+        <div class="case-more">
+          <p>Cadbury moved on two fronts: operations (new double-sealed, foil-wrapped packaging, plant audits, media walk-throughs) and communication (Amitabh Bachchan, a voice India trusted, personally vouching for the process). Note the sequence: fix first, then front the most credible spokesperson available, then let the festive season ritual do the healing. Project Vishwas was aimed at the trade as much as the consumer.</p>
+          <p class="lesson"><b>Boardroom takeaway:</b> borrowed credibility works only when backed by visible correction. Bachchan could vouch because the packaging had actually changed.</p>
+        </div>
+        <span class="case-toggle">Read the strategy &darr;</span>
+      </div>
+      <div class="card case-card reveal d2" tabindex="0">
+        <span class="case-brand">The contrast case</span>
+        <h4>No reservoir, full price paid</h4>
+        <p>Byju's: a brand that spent big on visibility, and found visibility is not the same as goodwill.</p>
+        <div class="case-more">
+          <p>At its peak, Byju's bought cricket jerseys, World Cup sponsorships, and superstar endorsers. But its everyday communication was acquisition-led: sales calls, fee pressure, aggressive conversion. When financial and governance troubles hit, there was no reservoir of felt values to draw on; parents' accumulated frustration surfaced instead, and coverage turned unsparing. Reach had been rented; trust had never been banked.</p>
+          <p class="lesson"><b>Boardroom takeaway:</b> sponsorship visibility without value-consistent behaviour builds a tall building with no foundation. Audit what your daily operations are depositing, because in crisis, that is the balance you draw on.</p>
+        </div>
+        <span class="case-toggle">Read the strategy &darr;</span>
+      </div>
+    </div>
+
+    <div class="card video-card reveal mb">
+      <div class="video-wrap">
+        <button type="button" class="videoFacade" data-vid="FKvoZyz23y4" data-title="Maggi We Miss You Too campaign film" style="background-image:url(https://i.ytimg.com/vi/FKvoZyz23y4/hqdefault.jpg)" aria-label="Play: Maggi We Miss You Too campaign film"><span class="vfPlay"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span></button>
+      </div>
+      <a class="vWatchLink" href="https://www.youtube.com/watch?v=FKvoZyz23y4" target="_blank" rel="noopener">Watch on YouTube &#8599;</a>
+      <div class="video-note">
+        <span class="vtag">Watch &amp; Decode</span>
+        <p><b>Maggi, #WeMissYouToo (2015).</b> Released while the ban was still in force. No defensiveness, no lab data, just the relationship: a fan talking to Maggi like an old friend, and the brand answering. Study the tone: it presumes the comeback, invokes thirty years of goodwill, and lets regulators handle the science while the brand handles the heart.</p>
+      </div>
+    </div>
+
+    <div class="field-card reveal mb">
+      <span class="field-stamp">Field Work</span>
+      <h3>&#128337; The 24-Hour Autopsy</h3>
+      <p class="fc-sub">Internet research &middot; one Indian brand crisis from the last three years</p>
+      <ul class="checklist">
+        <li><span class="box">&#10003;</span>Pick a real crisis: recall, viral complaint, ad backlash, data leak, founder controversy. Recent, Indian, documented.</li>
+        <li><span class="box">&#10003;</span>Build the 24-hour timeline: what did the brand say, where, and at what hour? Use news archives plus the brand's own posts on X, Instagram, and LinkedIn.</li>
+        <li><span class="box">&#10003;</span>Grade the response against the holding-statement playbook: speed, honesty, named next update, one voice.</li>
+        <li><span class="box">&#10003;</span>Assess the reservoir: did years of prior value communication cushion the blow, or was the tank empty?</li>
+        <li><span class="box">&#10003;</span>Write your 5-line verdict: what you would have done differently by hour 6.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+<!-- ================= BLOCK 5 ================= -->
+<section class="section" id="block5">
+  <div class="container">
+    <span class="blocktag reveal">Block 5 &middot; Experiential &amp; Sponsorship</span>
+    <h2 class="section-title reveal">Memory-making, not logo-placing</h2>
+    <p class="lede reveal">A logo on a jersey buys visibility. An experience in someone's hands builds memory, and memory is what gets retrieved at the shelf. Evaluate every sponsorship and activation on what it makes people feel and do, not on how many eyeballs allegedly grazed past your logo.</p>
+
+    <!-- WOW 9: Sponsorship Scorecard -->
+    <div class="card reveal mb" id="roiScorecard">
+      <h3>Wow Widget: The Sponsorship ROI Scorecard</h3>
+      <p style="color:var(--ink-soft);font-size:14px;margin-bottom:12px;">Reach is table stakes. Score the property on the five dimensions that actually decide value. Load a preset or drag the sliders; the radar redraws live and the verdict tells you whether to sign the cheque.</p>
+      <div class="chips">
+        <button class="chip on" id="presetIPL">Preset: IPL team sponsorship</button>
+        <button class="chip" id="presetFest">Preset: regional festival activation</button>
+      </div>
+      <div class="scorecard">
+        <div class="sc-sliders">
+          <label>Audience fit <output id="o1">7</output></label>
+          <input type="range" min="1" max="10" value="7" id="s1" aria-label="Audience fit score">
+          <label>Brand association transfer <output id="o2">6</output></label>
+          <input type="range" min="1" max="10" value="6" id="s2" aria-label="Association transfer score">
+          <label>Activation potential <output id="o3">8</output></label>
+          <input type="range" min="1" max="10" value="8" id="s3" aria-label="Activation potential score">
+          <label>Exclusivity <output id="o4">4</output></label>
+          <input type="range" min="1" max="10" value="4" id="s4" aria-label="Exclusivity score">
+          <label>Memorability <output id="o5">6</output></label>
+          <input type="range" min="1" max="10" value="6" id="s5" aria-label="Memorability score">
+        </div>
+        <div class="radar-wrap">
+          <canvas id="radar" aria-label="Radar chart of sponsorship scores"></canvas>
+          <p class="sc-verdict" id="scVerdict"></p>
+        </div>
+      </div>
+    </div>
+
+    <h3 class="serif reveal" style="color:var(--maroon);font-size:22px;margin-bottom:14px;">Indian case cards: what the cheque really buys</h3>
+    <div class="grid2">
+      <div class="card case-card reveal" tabindex="0">
+        <span class="case-brand">IPL &middot; Dream11 &amp; Tata</span>
+        <h4>Title sponsorship beyond eyeballs</h4>
+        <p>What do Tata and Dream11 actually purchase with an IPL cheque? Not impressions. Permission structures.</p>
+        <div class="case-more">
+          <p>For Dream11, the IPL is category education at national scale: every match normalises fantasy sports and feeds the app's core loop the same evening. For Tata, the title is an association transfer play, the nation's biggest stage stamped with the group's name, reinforcing scale and trust across dozens of businesses. Same property, different strategic jobs. The activation, in-app contests and broadcast integration, is where the value gets banked.</p>
+          <p class="lesson"><b>Boardroom takeaway:</b> a property has no inherent value; the fit between its meaning and your strategic job creates the value. Name the job before you negotiate the price.</p>
+        </div>
+        <span class="case-toggle">Read the strategy &darr;</span>
+      </div>
+      <div class="card case-card reveal d1" tabindex="0">
+        <span class="case-brand">Festive activations</span>
+        <h4>Coca-Cola and Cadbury at Diwali, Kingfisher at the festival stage</h4>
+        <p>Festivals are India's native experiential platform: emotion pre-loaded, gathering guaranteed.</p>
+        <div class="case-more">
+          <p>Coca-Cola and Cadbury build Diwali activations around gifting and reunion because the festival supplies the emotion; the brand only has to be present inside the ritual. Music-festival activations, the Sunburn-style beer garden or the branded stage, work the same way for youth brands: the memory of the night transfers to the logo that hosted it. Kumbh-scale rural activations show the other extreme, where sampling, utility (water, rest stops), and sheer service build goodwill among crores of pilgrims.</p>
+          <p class="lesson"><b>Boardroom takeaway:</b> borrow an occasion's emotion honestly, add real utility or delight, and the memory files itself under your brand.</p>
+        </div>
+        <span class="case-toggle">Read the strategy &darr;</span>
+      </div>
+      <div class="card case-card reveal" tabindex="0">
+        <span class="case-brand">Mall &amp; campus</span>
+        <h4>Small stages, sharp lessons</h4>
+        <p>A mall kiosk or a college fest stall is sponsorship on a trainee budget, and the fundamentals are identical.</p>
+        <div class="case-more">
+          <p>The kiosk that only distributes pamphlets is logo-placing. The kiosk with a game, a sample, a photo moment, or a skill challenge is memory-making. College activations add an amplifier: students post everything, so a well-designed stall earns its own social reach. Measure footfall to interaction to takeaway conversion, not just footfall.</p>
+          <p class="lesson"><b>Boardroom takeaway:</b> if the visitor leaves with nothing to feel, do, or show, the activation was a banner with staffing costs.</p>
+        </div>
+        <span class="case-toggle">Read the strategy &darr;</span>
+      </div>
+      <div class="card case-card reveal d1" tabindex="0">
+        <span class="case-brand">Personal selling</span>
+        <h4>The showroom must repeat the ad's promise</h4>
+        <p>Experiential marketing's forgotten sibling: the human at the counter is your last medium.</p>
+        <div class="case-more">
+          <p>Tanishq advertises trust and purity, and backs it in-store with the karatmeter, a machine that tests your old gold in front of you. The ad's promise and the showroom's behaviour are one system. Now imagine a luxury car ad promising serenity, delivered by a pushy salesman discounting on the first visit. The last three feet of communication undid the first thousand kilometres of it.</p>
+          <p class="lesson"><b>Boardroom takeaway:</b> brief the sales floor like you brief the agency. The showroom script is media; audit it like media.</p>
+        </div>
+        <span class="case-toggle">Read the strategy &darr;</span>
+      </div>
+    </div>
+
+    <div class="field-card reveal mb">
+      <span class="field-stamp">Field Work</span>
+      <h3>&#127914; The Activation Autopsy</h3>
+      <p class="fc-sub">Live visit within two weeks, or the internet alternative</p>
+      <p><b>Primary mission:</b> attend any live brand activation: a mall kiosk, a college fest stall, an exhibition booth, a festival pop-up.</p>
+      <ul class="checklist">
+        <li><span class="box">&#10003;</span>Document the journey: footfall (how were you drawn in?), interaction (what did you do?), takeaway (what did you leave with?).</li>
+        <li><span class="box">&#10003;</span>Time it: how many seconds between arrival and the first branded interaction?</li>
+        <li><span class="box">&#10003;</span>Verdict: did this create a memory or distribute pamphlets? One paragraph, be ruthless.</li>
+      </ul>
+      <p style="margin-top:12px;"><b>No event nearby?</b> Analyse one IPL sponsorship online instead: score it on the five Scorecard dimensions above and justify each number with evidence from broadcast, social, and app activity.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= BLOCK 6 ================= -->
+<section class="section" id="block6">
+  <div class="container">
+    <span class="blocktag reveal">Block 6 &middot; Regulation &amp; Ethics</span>
+    <h2 class="section-title reveal">The fine print is your signature</h2>
+    <p class="lede reveal">Every promotion you approve carries your professional name on it, whether or not it carries your legal one. India's consumer protection framework and the ASCI Code are not obstacles to clever marketing. They are the minimum standard of the promise-keeping business you are in.<span class="foot">Consumer Protection Act 2019</span><span class="foot">ASCI Code</span></p>
+
+    <div class="grid3">
+      <div class="card clause reveal">
+        <h4>Full disclosure</h4>
+        <p>Material conditions of an offer must be stated upfront, not buried. Price, duration, eligibility, and the real odds of a prize. Under the Consumer Protection Act 2019, a misleading advertisement can draw penalties for the manufacturer, the agency, and the endorser. "Conditions apply" in six-point grey is not disclosure, it is documentation of intent.</p>
+      </div>
+      <div class="card clause reveal d1">
+        <h4>The conditions-apply abuse</h4>
+        <p>The classic patterns: "up to 80% off" where one dusty SKU carries the 80, free offers with undisclosed shipping loaded, exchange bonuses that quietly require accessories purchases. Each is legal-looking and trust-corroding. The Central Consumer Protection Authority (CCPA) now issues guidelines and penalties targeting exactly these dark patterns.</p>
+      </div>
+      <div class="card clause reveal d2">
+        <h4>Contests and lottery legality</h4>
+        <p>A game of skill (judged answers, genuine skill tests) is treated differently from a lottery or game of chance, which is state-regulated and mostly restricted. If entry requires purchase and winning is pure chance, you are drifting toward an illegal lottery. Structure contests around skill, keep a free entry route where required, and publish winner selection methods.</p>
+      </div>
+    </div>
+
+    <!-- WOW 10: ASCI Walkthrough -->
+    <div class="reveal mb">
+      <h3 class="serif" style="color:var(--maroon);font-size:22px;margin-bottom:8px;">Wow Widget: The ASCI Complaint Walkthrough</h3>
+      <p style="font-size:14px;color:var(--ink-soft);margin-bottom:16px;">The Advertising Standards Council of India is self-regulation with real teeth: broadcasters and platforms honour its rulings. Tap each step to see how a misleading promotional claim travels from complaint to consequence.</p>
+      <div class="flow">
+        <div class="fstep">
+          <span class="fnum">1</span>
+          <div class="fbody">
+            <button class="fhead">Complaint filed <span class="acc-ico">+</span></button>
+            <div class="fdetail"><div>
+              <p>Anyone can complain: a consumer via ASCI's website or WhatsApp line, a rival brand, a government body, or ASCI's own monitoring, which actively scans ads. No lawyer, no fee for consumers. The complaint cites the ad and why it seems to breach the Code: misleading, indecent, harmful, or unfair to competition.</p>
+            </div></div>
+          </div>
+        </div>
+        <div class="fstep">
+          <span class="fnum">2</span>
+          <div class="fbody">
+            <button class="fhead">Screening <span class="acc-ico">+</span></button>
+            <div class="fdetail"><div>
+              <p>ASCI's secretariat checks jurisdiction and prima facie merit: is this an advertisement, does the objection map to a Code provision? Frivolous or out-of-scope complaints are filtered here, and clear-cut cases can move on a fast track.</p>
+            </div></div>
+          </div>
+        </div>
+        <div class="fstep">
+          <span class="fnum">3</span>
+          <div class="fbody">
+            <button class="fhead">Advertiser responds <span class="acc-ico">+</span></button>
+            <div class="fdetail"><div>
+              <p>The advertiser gets the complaint and a deadline to substantiate the claim with evidence: test reports, study data, terms of the offer. This is the moment your file either exists or does not. If the claim was "India's No. 1", the ranking study must be produced, not remembered.</p>
+            </div></div>
+          </div>
+        </div>
+        <div class="fstep">
+          <span class="fnum">4</span>
+          <div class="fbody">
+            <button class="fhead">CCC review <span class="acc-ico">+</span></button>
+            <div class="fdetail"><div>
+              <p>The Consumer Complaints Council, a jury of industry professionals and civil society members, weighs the ad against the Code. Deliberation is structured: does the evidence substantiate the claim as an ordinary consumer would understand it? The ordinary-consumer reading, not the lawyer's reading, decides.</p>
+            </div></div>
+          </div>
+        </div>
+        <div class="fstep">
+          <span class="fnum">5</span>
+          <div class="fbody">
+            <button class="fhead">Outcome <span class="acc-ico">+</span></button>
+            <div class="fdetail"><div>
+              <p>If upheld, the advertiser must modify or withdraw the ad by a set date. Non-compliance gets escalated: broadcasters can refuse the spot, and matters can be forwarded to regulators like the CCPA. Rulings are published, so the reputational cost is real.</p>
+              <p class="ex"><b>Real pattern, anonymised:</b> a snack brand's pack and posts claimed "No added preservatives" while the ingredient list included a preservative-class additive; the complaint was upheld and packs plus posts were ordered corrected. In another upheld case, a learning app's promotion promised guaranteed rank improvement with no substantiating study; "guaranteed" had to go. Notice the common thread: the claim was written by enthusiasm, not evidence.</p>
+              <p style="margin-top:10px;"><b>Discussion prompt for your team:</b> pull up your current campaign. Which single claim would survive step 3 least comfortably, and what evidence file should exist for it today?</p>
+            </div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="reflect reveal mb">
+      <h3>The communicator's responsibility: your refusal list</h3>
+      <p style="margin-top:8px;font-size:15px;">Regulation defines what you cannot do. Character defines what you will not do. Somewhere between an inflated claim and an outright lie sits every grey brief you will ever receive. Write, right now, the three things you would refuse to sign off on, whatever the client, whatever the quarter. Keep the list where you can see it, because the day you need it, there will be a deadline attached.</p>
+      <textarea placeholder="I will not sign off on... (1) ... (2) ... (3) ..." aria-label="Your refusal list"></textarea>
+      <p style="margin-top:10px;font-size:13px;color:rgba(251,246,237,.7);">This stays on your screen. It is for you, not for submission. That is rather the point.</p>
+    </div>
+
+    <p class="footrow reveal">Grounding for this unit: Belch and Belch, Advertising and Promotion; Kotler and Keller, Marketing Management; The ASCI Code for Self-Regulation; Consumer Protection Act 2019 and CCPA guidelines on misleading advertisements and dark patterns.</p>
+  </div>
+</section>
+<!-- ================= PRACTICAL STUDIO ================= -->
+<section class="section" id="studio">
+  <div class="container">
+    <span class="blocktag reveal">Practical Studio &middot; Capstone</span>
+    <h2 class="section-title reveal">Design and Defend</h2>
+    <p class="lede reveal">Twelve hours of theory earn their keep here. Design a shareable promotion for a real Indian brand, stress-test it the way ASCI and angry customers would, and write the crisis note you hope never to send. At the end, the studio generates your two-part one-pager, formatted like a real agency deliverable, ready to print or download.</p>
+
+    <div class="studio-shell reveal mb">
+      <div class="studio-head">
+        <h3>The Design &amp; Defend Worksheet</h3>
+        <p style="font-size:14px;color:rgba(251,246,237,.8);margin-top:4px;">Five steps. Your inputs stay on this page until you generate the deliverable.</p>
+      </div>
+      <div class="stepdots" id="stepDots">
+        <button class="sdot on" data-step="0" aria-label="Step 1"></button>
+        <button class="sdot" data-step="1" aria-label="Step 2"></button>
+        <button class="sdot" data-step="2" aria-label="Step 3"></button>
+        <button class="sdot" data-step="3" aria-label="Step 4"></button>
+        <button class="sdot" data-step="4" aria-label="Step 5"></button>
+      </div>
+
+      <div class="step-panel show" data-panel="0">
+        <h4>Step 1 &middot; Choose your brand</h4>
+        <p class="hint">A real Indian brand you know well enough to defend in a boardroom. Type your own or tap a suggestion.</p>
+        <div class="f-row">
+          <label for="stBrand">Brand</label>
+          <input type="text" id="stBrand" placeholder="e.g., Amul, boAt, Mamaearth...">
+          <div class="suggest">
+            <button data-fill="Amul">Amul</button><button data-fill="boAt">boAt</button><button data-fill="Mamaearth">Mamaearth</button><button data-fill="Royal Enfield">Royal Enfield</button><button data-fill="Haldiram's">Haldiram's</button><button data-fill="Tata Tea">Tata Tea</button>
+          </div>
+        </div>
+        <div class="f-row">
+          <label for="stGoal">Business goal for this promotion</label>
+          <select id="stGoal">
+            <option>Drive trial among new customers</option>
+            <option>Increase repeat purchase</option>
+            <option>Clear seasonal stock</option>
+            <option>Energise the trade channel</option>
+            <option>Defend against a competitor launch</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="step-panel" data-panel="1">
+        <h4>Step 2 &middot; Design the shareable promotion</h4>
+        <p class="hint">Build it with the Block 2 grammar: mechanic, trigger, share unit, amplifier, and its integration with your advertising.</p>
+        <div class="f-row"><label for="stMech">The mechanic (what the customer actually gets or does)</label><input type="text" id="stMech" placeholder="e.g., buy one pack, unlock a regional recipe contest entry"></div>
+        <div class="f-row"><label for="stTrigger">The trigger (emotion that fires the forward)</label>
+          <select id="stTrigger"><option>Surprise</option><option>Status</option><option>Humour</option><option>Utility</option><option>Belonging</option></select>
+        </div>
+        <div class="f-row"><label for="stUnit">The share unit (the exact thing that travels)</label><input type="text" id="stUnit" placeholder="e.g., an auto-generated shareable card with the user's contest entry"></div>
+        <div class="f-row"><label for="stAmp">The amplifier (who carries it and why)</label><input type="text" id="stAmp" placeholder="e.g., food micro-creators invited to judge; family WhatsApp groups"></div>
+        <div class="f-row"><label for="stIntegrate">Integration with advertising (how the promo and the brand campaign tell one story)</label><textarea id="stIntegrate" placeholder="Which brand idea does the mechanic dramatise? What does the ad say, what does the promo do?"></textarea></div>
+      </div>
+
+      <div class="step-panel" data-panel="2">
+        <h4>Step 3 &middot; Stress-test it</h4>
+        <p class="hint">Answer the three questions your future critics will ask. Weak answers here become headlines later.</p>
+        <p class="stress-q">What could go wrong operationally? (stockouts, fraud, tech failure, dealer confusion)</p>
+        <div class="f-row"><textarea id="stRisk1" placeholder="Name the two most likely failure points and your mitigation."></textarea></div>
+        <p class="stress-q">Who could feel cheated, and how? (fine print, exclusions, odds, delays)</p>
+        <div class="f-row"><textarea id="stRisk2" placeholder="Walk through the promotion as your most sceptical customer."></textarea></div>
+        <p class="stress-q">What would ASCI say? (claims, disclosure, contest legality)</p>
+        <div class="f-row"><textarea id="stRisk3" placeholder="Which claim needs an evidence file? Where is full disclosure displayed?"></textarea></div>
+      </div>
+
+      <div class="step-panel" data-panel="3">
+        <h4>Step 4 &middot; The crisis note for this promotion</h4>
+        <p class="hint">Every promotion is a small crisis waiting for a spark. Draft the note now, calmly, instead of at 11 pm on launch day.</p>
+        <div class="f-row"><label for="stHold">Holding statement (what we know, what we do not, what we are doing, next update)</label><textarea id="stHold" placeholder="We are aware of... We are investigating... We will update by..."></textarea></div>
+        <div class="f-row"><label>First 3 actions in hour one</label>
+          <input type="text" id="stAct1" placeholder="Action 1" style="margin-bottom:8px;">
+          <input type="text" id="stAct2" placeholder="Action 2" style="margin-bottom:8px;">
+          <input type="text" id="stAct3" placeholder="Action 3">
+        </div>
+        <div class="f-row"><label for="stSpoke">Spokesperson</label>
+          <select id="stSpoke"><option>Brand head (fast, credible on operations)</option><option>CEO / Founder (highest stakes, highest trust)</option><option>Customer care head (service-level issues)</option><option>External expert with brand endorsement</option></select>
+        </div>
+        <div class="f-row"><label for="stAssets">Goodwill assets to invoke (what has this brand banked that we can draw on?)</label><textarea id="stAssets" placeholder="Years of consistent messaging, community work with receipts, loyal customer base, founder credibility..."></textarea></div>
+      </div>
+
+      <div class="step-panel" data-panel="4">
+        <h4>Step 5 &middot; Your agency deliverable</h4>
+        <p class="hint">Review the generated one-pager below, then print it or download it as a standalone file. Edit any step and it regenerates.</p>
+        <div id="onepager"></div>
+        <div class="op-actions">
+          <button class="snbtn next" id="btnPrint">&#128424; Open printable version</button>
+          <button class="snbtn next" id="btnCopy">&#128203; Copy my brief</button>
+          <button class="snbtn next" id="btnDownload">&#8681; Download HTML</button>
+        </div>
+      </div>
+
+      <div class="studio-nav">
+        <button class="snbtn back" id="stepBack" disabled>&larr; Back</button>
+        <button class="snbtn next" id="stepNext">Next &rarr;</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer>
+  <span class="logobadge" style="margin:0 auto;display:flex;width:56px;height:56px;font-size:30px;">द</span>
+  <p class="sig">With love, Dinesh Sir</p>
+  <p class="principles">Principles for professionals: promise only what your operations can keep, design the share before you buy the reach, and fill the goodwill tank in the years when nothing is burning.</p>
+  <div class="fsoc">
+    <a href="#" aria-label="LinkedIn placeholder">LinkedIn</a>
+    <a href="#" aria-label="YouTube placeholder">YouTube</a>
+    <a href="#" aria-label="Newsletter placeholder">Newsletter</a>
+    <a href="mailto:hello@learnwithdineshsir.in" aria-label="Email">Write to me</a>
+  </div>
+  <p class="fcredit">Learn with Dinesh Sir &middot; Unit IV: Below-the-Line Tools &middot; Built for the professionals who move stock, hearts, and headlines.</p>
+</footer>
+<style>
+.fstep.open .acc-ico{transform:rotate(45deg);}
+.cmp tr.open .mini{color:var(--ok);}
+
+/* Compact hero so the title, the hours line and the first call to action
+   all sit inside the first 600px of a short Google Sites embed window. */
+@media(max-width:600px){
+  /* Give the pill strip room on a narrow embed: the badge keeps the brand. */
+  .navname{display:none}
+}
+@media(max-width:820px){
+  #hero{padding:22px 16px 28px;min-height:340px}
+  .hero-scrollhint{display:none}
+  .hero-kicker{margin-bottom:11px;font-size:11px;padding:6px 13px}
+  .hero-inner h1{font-size:clamp(23px,6.2vw,32px)}
+  .hero-meta{font-size:13px;margin-bottom:10px}
+  .hero-tag{font-size:15px;margin:0 auto 16px}
+  .cta-row{gap:9px}
+  .cta{padding:12px 20px;font-size:14.5px}
+}
+</style>
+<script>
+(function(){
+"use strict";
+var $=function(s,c){return (c||document).querySelector(s);};
+var $$=function(s,c){return Array.prototype.slice.call((c||document).querySelectorAll(s));};
+
+/* ---------- Video facades: click to load, youtube-nocookie ---------- */
+document.addEventListener('click',function(e){
+  var f=e.target.closest?e.target.closest('.videoFacade'):null;
+  if(!f)return;
+  var vid=f.getAttribute('data-vid');
+  var title=f.getAttribute('data-title')||'YouTube video';
+  var iframe=document.createElement('iframe');
+  iframe.src='https://www.youtube-nocookie.com/embed/'+vid+'?rel=0&playsinline=1&autoplay=1';
+  iframe.title=title;
+  iframe.loading='lazy';
+  iframe.allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
+  iframe.allowFullscreen=true;
+  iframe.setAttribute('playsinline','');
+  iframe.style.cssText='position:absolute;inset:0;width:100%;height:100%;border:0';
+  f.replaceWith(iframe);
+});
+
+/* ---------- Open full screen in a new tab ---------- */
+var fsBtn=$('#fsBtn');
+if(fsBtn)fsBtn.addEventListener('click',function(){
+  var w=window.open(location.href,'_blank');
+  if(!w&&typeof toast==='function')toast('Pop-up blocked. Allow pop-ups to open this page full screen.');
+});
+var topBtn=$('#topBtn');
+if(topBtn)topBtn.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'});});
+
+/* ---------- JS-driven anchor scrolling (never native hash jumps) ----------
+   Hash navigation inside an embedded iframe can scroll the parent Google
+   Sites page instead of this page's own content, so every in-page link is
+   intercepted here and scrolled with scrollIntoView instead. */
+document.addEventListener('click',function(e){
+  var a=e.target.closest?e.target.closest('a[href^="#"]'):null;
+  if(!a)return;
+  e.preventDefault();
+  var id=a.getAttribute('href').slice(1);
+  if(!id)return;
+  var target=document.getElementById(id);
+  if(target)target.scrollIntoView({behavior:'smooth',block:'start'});
+});
+
+/* ---------- Reveal failsafe ----------
+   If IntersectionObserver support is missing or a reveal element never
+   intersects, force it visible after 2.5s so content is never stranded. */
+setTimeout(function(){
+  $$('.reveal').forEach(function(el){el.classList.add('in');});
+},2500);
+
+/* ---------- Progress bar ---------- */
+var pbar=$("#progressBar");
+function updProgress(){
+  var h=document.documentElement;
+  var max=h.scrollHeight-h.clientHeight;
+  var p=max>0?(h.scrollTop||document.body.scrollTop)/max*100:0;
+  pbar.style.width=p+"%";
+}
+window.addEventListener("scroll",updProgress,{passive:true});
+updProgress();
+
+/* ---------- Reveal on scroll ---------- */
+var revealObs=new IntersectionObserver(function(entries){
+  entries.forEach(function(e){
+    if(e.isIntersecting){e.target.classList.add("in");revealObs.unobserve(e.target);}
+  });
+},{threshold:0.12,rootMargin:"0px 0px -30px 0px"});
+$$(".reveal").forEach(function(el){revealObs.observe(el);});
+
+/* ---------- Scrollspy ---------- */
+var pills=$$("#navlinks .pill");
+var sections=pills.map(function(p){return $(p.getAttribute("href"));}).filter(Boolean);
+var spyObs=new IntersectionObserver(function(entries){
+  entries.forEach(function(e){
+    if(e.isIntersecting){
+      var id="#"+e.target.id;
+      pills.forEach(function(p){
+        var on=p.getAttribute("href")===id;
+        p.classList.toggle("active",on);
+        if(on){
+          var nl=$("#navlinks");
+          var target=p.offsetLeft-nl.clientWidth/2+p.clientWidth/2;
+          nl.scrollTo({left:target,behavior:"smooth"});
+        }
+      });
+    }
+  });
+},{rootMargin:"-35% 0px -55% 0px"});
+sections.forEach(function(s){spyObs.observe(s);});
+
+/* ---------- Accordions (generic) ---------- */
+$$(".accordion .acc-head").forEach(function(head){
+  head.addEventListener("click",function(){
+    var acc=head.parentElement,body=$(".acc-body",acc);
+    var open=acc.classList.toggle("open");
+    body.style.maxHeight=open?body.scrollHeight+"px":"0px";
+  });
+});
+/* comparison table rows */
+$$("#cmpTable .row-head").forEach(function(head){
+  head.addEventListener("click",function(){
+    var tr=head.closest("tr");
+    tr.classList.toggle("open");
+  });
+});
+/* ASCI flow steps */
+$$(".fstep .fhead").forEach(function(head){
+  head.addEventListener("click",function(){
+    head.closest(".fstep").classList.toggle("open");
+  });
+});
+
+/* ---------- Flip cards (tap + keyboard) ---------- */
+$$(".flip").forEach(function(f){
+  function flip(){f.classList.toggle("flipped");}
+  f.addEventListener("click",flip);
+  f.addEventListener("keydown",function(e){if(e.key==="Enter"||e.key===" "){e.preventDefault();flip();}});
+});
+
+/* ---------- Case cards ---------- */
+$$(".case-card").forEach(function(c){
+  function tgl(){
+    c.classList.toggle("open");
+    var t=$(".case-toggle",c);
+    if(t)t.innerHTML=c.classList.contains("open")?"Close &uarr;":"Read the strategy &darr;";
+  }
+  c.addEventListener("click",tgl);
+  c.addEventListener("keydown",function(e){if(e.key==="Enter"){tgl();}});
+});
+
+/* ---------- Checklists ---------- */
+$$(".checklist li").forEach(function(li){
+  li.addEventListener("click",function(){li.classList.toggle("done");});
+});
+
+/* ---------- Mission toggle (Block 2 field card) ---------- */
+$$("[data-mission]").forEach(function(t){
+  t.addEventListener("click",function(){
+    $$("[data-mission]").forEach(function(x){x.classList.remove("on");});
+    t.classList.add("on");
+    var a=t.getAttribute("data-mission")==="a";
+    $("#missionA").style.display=a?"":"none";
+    $("#missionB").style.display=a?"none":"";
+  });
+});
+
+/* ================= WOW 1: Promotion Tool Selector ================= */
+var toolData={
+  trial:{
+    match:["sampling","discount"],
+    reasons:{
+      sampling:"Perfect fit: a zero-risk first taste is the shortest road from stranger to customer.",
+      discount:"Fits: an introductory price lowers the barrier to the first purchase. Cap it in time so it stays introductory.",
+      contest:"Dimmed: contests engage people who already know you; they rarely cause a first purchase.",
+      loyalty:"Dimmed: loyalty rewards the customers you already have. You are hunting, not farming, right now.",
+      bundling:"Dimmed: bundles assume existing intent and raise basket size. Trial needs a low-commitment entry, not a bigger pack.",
+      tradescheme:"Dimmed: this fills the shelf, not the shopper's mind. Distribution without desire is inventory."
+    }
+  },
+  repeat:{
+    match:["loyalty","bundling"],
+    reasons:{
+      loyalty:"Perfect fit: points, tiers, and coins pay the customer for the exact behaviour you want, coming back.",
+      bundling:"Fits: a multi-pack locks in the next three consumption occasions before a rival can interrupt.",
+      discount:"Dimmed: repeated price-offs train customers to wait for the sale, not to return at full price.",
+      contest:"Dimmed: a contest is a spike, not a habit. Repeat purchase is built on rhythm.",
+      sampling:"Dimmed: the trial job is already done. Sampling an existing user is a free gift with no new behaviour.",
+      tradescheme:"Dimmed: the retailer cannot build your customer's habit; only your product and programme can."
+    }
+  },
+  clearance:{
+    match:["discount","bundling","tradescheme"],
+    reasons:{
+      discount:"Fits: a deep, dated, clearly-framed markdown is the honest tool for moving stock past its season.",
+      bundling:"Fits: banding slow stock with fast stock clears the godown without headline price cuts.",
+      tradescheme:"Fits with caution: channel schemes shift inventory fast, but watch the buy-in hangover next quarter.",
+      contest:"Dimmed: too slow and too indirect when the warehouse clock is ticking.",
+      sampling:"Dimmed: giving stock away free is not clearance, it is surrender with a smile.",
+      loyalty:"Dimmed: burning points on dead stock devalues the currency your best customers hold."
+    }
+  },
+  trade:{
+    match:["tradescheme","contest"],
+    reasons:{
+      tradescheme:"Perfect fit: margin slabs, display money, and free goods are the native language of the channel.",
+      contest:"Fits: dealer and display contests add pride to profit; the counter fights for you, not just with you.",
+      discount:"Dimmed: a consumer price-off does not motivate the trade unless their margin is protected inside it.",
+      sampling:"Dimmed: sampling is a consumer pull tool; the distributor wants earnings, not tastings.",
+      loyalty:"Dimmed: consumer points do nothing for the stockist's cash flow. A trade loyalty ladder is a separate design.",
+      bundling:"Dimmed: consumer bundles complicate the trade's stocking math unless margins are re-engineered."
+    }
+  },
+  premium:{
+    match:["loyalty","sampling"],
+    reasons:{
+      loyalty:"Fits: recognition, tiers, and privileges reward loyalty without ever touching the price tag.",
+      sampling:"Fits: a premium product arguing its own case in the customer's hands beats any claim you could print.",
+      discount:"Dimmed: every rupee off is a public confession about your price. Premium brands do not confess.",
+      contest:"Dimmed: mass contests can cheapen the badge unless the prize itself is money-cannot-buy.",
+      bundling:"Dimmed: price bundles read as value-seeking. A crafted gift-with-purchase is the premium-safe cousin.",
+      tradescheme:"Dimmed: invisible to consumers, so it neither harms nor helps the image. It just does not do this job."
+    }
+  }
+};
+var goalChips=$$("#goalChips .chip");
+goalChips.forEach(function(chip){
+  chip.addEventListener("click",function(){
+    goalChips.forEach(function(c){c.classList.remove("on");});
+    chip.classList.add("on");
+    var g=toolData[chip.getAttribute("data-goal")];
+    $$("#toolGrid .tool").forEach(function(t){
+      var key=t.getAttribute("data-tool");
+      var isMatch=g.match.indexOf(key)!==-1;
+      t.classList.toggle("match",isMatch);
+      t.classList.toggle("dim",!isMatch);
+      $(".t-why",t).textContent=g.reasons[key];
+    });
+    $("#goalPrompt").textContent="Diagnostic complete. The glowing tools earn their budget for this goal; the dimmed ones would spend it.";
+  });
+});
+
+/* ================= WOW 2: Discount Addiction Simulator ================= */
+var simCanvas=$("#simCanvas"),simCtx=simCanvas.getContext("2d");
+var freqSlider=$("#freqSlider"),freqRead=$("#freqRead"),simVerdict=$("#simVerdict");
+function simVerdictText(f){
+  if(f===0)return "The premium holdout. Your price integrity is intact, but check you are not starving trial. Zero promotions is a strategy only if your advertising is doing the acquisition work.";
+  if(f<=2)return "Disciplined. One or two dated, festive, occasion-built promotions add energy without teaching anyone to wait. Cadbury Celebrations lives here.";
+  if(f<=4)return "Watch the calendar. Quarterly offers are still events, but the trade has started planning its orders around your scheme dates. So have your customers.";
+  if(f<=7)return "Amber alert. More than half your year is on deal. The spikes look great in monthly reviews while the full-price baseline quietly sinks beneath them.";
+  if(f<=10)return "You are training customers to wait for the sale. The discounted price is now the reference price, and your brand is negotiating against its own MRP.";
+  return "Always-on discounter. The offer is the brand now. Ask Paytm's cashback-era finance team what this curve costs, and what remains when the funding stops.";
+}
+function drawSim(){
+  var dpr=window.devicePixelRatio||1;
+  var w=simCanvas.clientWidth,h=simCanvas.clientHeight||240;
+  simCanvas.width=w*dpr;simCanvas.height=h*dpr;
+  simCtx.setTransform(dpr,0,0,dpr,0,0);
+  simCtx.clearRect(0,0,w,h);
+  var f=parseInt(freqSlider.value,10);
+  var pad=28,months=24;
+  var X=function(i){return pad+(w-2*pad)*i/(months-1);};
+  var Y=function(v){return h-pad-(h-2*pad)*v/140;};
+  /* grid */
+  simCtx.strokeStyle="rgba(251,246,237,.12)";simCtx.lineWidth=1;
+  for(var g=0;g<=4;g++){
+    simCtx.beginPath();simCtx.moveTo(pad,Y(g*35));simCtx.lineTo(w-pad,Y(g*35));simCtx.stroke();
+  }
+  /* promo months across 24 months */
+  var promoMonths={};
+  if(f>0){for(var k=0;k<f*2;k++){promoMonths[Math.round(k*24/(f*2))+1]=true;}}
+  /* sales line */
+  var sales=[],prem=[];
+  for(var i=0;i<months;i++){
+    var base=60-(f>6?(i*(f-6)*0.35):0);
+    if(base<28)base=28;
+    var spike=promoMonths[i]?(38+Math.min(f,6)*2-(f>8?i*0.5:0)):0;
+    if(spike<0)spike=0;
+    sales.push(base+spike);
+    var erosion=f*2.1*(i/(months-1));
+    var p=100-erosion;if(p<18)p=18;
+    prem.push(p);
+  }
+  function line(data,color,width){
+    simCtx.strokeStyle=color;simCtx.lineWidth=width;simCtx.lineJoin="round";
+    simCtx.beginPath();
+    data.forEach(function(v,i){var x=X(i),y=Y(v);i===0?simCtx.moveTo(x,y):simCtx.lineTo(x,y);});
+    simCtx.stroke();
+  }
+  line(sales,"#E0A93A",3);
+  line(prem,"#ff9d6b",3);
+  /* labels */
+  simCtx.fillStyle="rgba(251,246,237,.55)";simCtx.font="11px Inter, sans-serif";
+  simCtx.fillText("Month 1",pad,h-8);
+  simCtx.fillText("Month 24",w-pad-46,h-8);
+  freqRead.textContent=f;
+  simVerdict.textContent=simVerdictText(f);
+}
+freqSlider.addEventListener("input",function(){
+  $$("#discountSim .preset").forEach(function(x){x.classList.remove("on");});
+  drawSim();
+});
+$$("#discountSim .preset").forEach(function(p){
+  p.addEventListener("click",function(){
+    $$("#discountSim .preset").forEach(function(x){x.classList.remove("on");});
+    p.classList.add("on");
+    freqSlider.value=p.getAttribute("data-preset");
+    drawSim();
+  });
+});
+drawSim();
+
+/* ================= WOW 3: Virality Blueprint Builder ================= */
+var bpPick={trigger:null,unit:null,amp:null};
+var bpScores={
+  trigger:{surprise:27,humour:26,status:25,belonging:23,utility:22},
+  unit:{meme:26,unboxing:25,leaderboard:24,referral:22},
+  amp:{creators:30,friends:26,family:22}
+};
+var bpSynergy=[
+  {t:"surprise",u:"unboxing",bonus:12,note:"Surprise plus unboxing: the reveal itself becomes the content. CRED runs on exactly this pairing."},
+  {t:"humour",u:"meme",bonus:12,note:"Humour plus meme template: you are not asking people to share an ad, you are handing them a joke to retell."},
+  {t:"status",u:"leaderboard",bonus:12,note:"Status plus leaderboard: rank is the one thing people screenshot voluntarily. Dream11 banked a business on it."},
+  {t:"utility",u:"referral",bonus:10,note:"Utility plus referral code: when both sides gain, the forward feels like a favour, not a promotion."},
+  {t:"belonging",u:"referral",bonus:8,note:"Belonging plus referral: the invite reads as welcome-to-the-club. Works when the club is worth joining."}
+];
+var ringVal=$("#ringVal"),ringNum=$("#ringNum"),bpCrit=$("#blueprintCritique");
+var RING_C=389.6;
+function bpUpdate(){
+  if(!bpPick.trigger||!bpPick.unit||!bpPick.amp){
+    bpCrit.textContent="Keep going. A blueprint with a missing part scores like a cheque with a missing signature.";
+    return;
+  }
+  var score=bpScores.trigger[bpPick.trigger]+bpScores.unit[bpPick.unit]+bpScores.amp[bpPick.amp];
+  var note="";
+  bpSynergy.forEach(function(s){
+    if(s.t===bpPick.trigger&&s.u===bpPick.unit){score+=s.bonus;note=s.note;}
+  });
+  if(bpPick.amp==="family"&&bpPick.trigger==="humour")note=note||"Humour in the family group travels far, but keep it clean enough for the eldest aunt. That is not a joke, it is a media plan constraint.";
+  if(bpPick.amp==="creators"&&bpPick.unit==="unboxing")note=note||"Creators plus unboxing is the influencer-economy default. Strong, but budget for authenticity: scripted awe reads as scripted.";
+  if(score>98)score=98;
+  var deg=RING_C-(RING_C*score/100);
+  ringVal.style.strokeDashoffset=deg;
+  var cur=0,target=score;
+  var stepper=setInterval(function(){
+    cur+=Math.ceil((target-cur)/6)||1;
+    if(cur>=target){cur=target;clearInterval(stepper);}
+    ringNum.textContent=cur;
+  },40);
+  var verdict;
+  if(score>=85)verdict="A planner would sign this. ";
+  else if(score>=70)verdict="Solid bones, one weak joint. ";
+  else verdict="This will need paid media on life support. ";
+  bpCrit.textContent=verdict+(note||"The parts are fine separately, but nothing multiplies. Look for a trigger and share unit that were made for each other.");
+}
+$$("#blueprintBuilder .chips").forEach(function(group){
+  var key=group.getAttribute("data-group");
+  $$(".chip",group).forEach(function(chip){
+    chip.addEventListener("click",function(){
+      $$(".chip",group).forEach(function(c){c.classList.remove("on");});
+      chip.classList.add("on");
+      bpPick[key]=chip.getAttribute("data-val");
+      bpUpdate();
+    });
+  });
+});
+
+/* ================= WOW 4: WOM Ripple ================= */
+var womSvg=$("#womSvg"),womCap=$("#womCap");
+var womMode="designed",womTimers=[];
+function womClear(){womTimers.forEach(clearTimeout);womTimers=[];}
+function womBuild(){
+  womClear();
+  while(womSvg.firstChild)womSvg.removeChild(womSvg.firstChild);
+  var W=600,H=320,N=42,nodes=[],seedIdx=0;
+  var rnd=(function(){var s=7;return function(){s=(s*16807)%2147483647;return (s-1)/2147483646;};})();
+  for(var i=0;i<N;i++){
+    nodes.push({x:30+rnd()*(W-60),y:26+rnd()*(H-52),lit:false});
+  }
+  nodes[seedIdx].x=W/2;nodes[seedIdx].y=H/2;
+  /* edges: nearest neighbours */
+  var per=womMode==="designed"?4:2;
+  var edges=[],adj=[];for(i=0;i<N;i++)adj.push([]);
+  for(i=0;i<N;i++){
+    var dists=[];
+    for(var j=0;j<N;j++){
+      if(i===j)continue;
+      var dx=nodes[i].x-nodes[j].x,dy=nodes[i].y-nodes[j].y;
+      dists.push([dx*dx+dy*dy,j]);
+    }
+    dists.sort(function(a,b){return a[0]-b[0];});
+    for(var k2=0;k2<per;k2++){
+      var j2=dists[k2][1];
+      if(adj[i].indexOf(j2)===-1){adj[i].push(j2);adj[j2].push(i);edges.push([i,j2]);}
+    }
+  }
+  var NS="http://www.w3.org/2000/svg";
+  var edgeEls={};
+  edges.forEach(function(e){
+    var l=document.createElementNS(NS,"line");
+    l.setAttribute("x1",nodes[e[0]].x);l.setAttribute("y1",nodes[e[0]].y);
+    l.setAttribute("x2",nodes[e[1]].x);l.setAttribute("y2",nodes[e[1]].y);
+    l.setAttribute("class","edge");
+    womSvg.appendChild(l);
+    edgeEls[e[0]+"-"+e[1]]=l;edgeEls[e[1]+"-"+e[0]]=l;
+  });
+  var nodeEls=nodes.map(function(n,idx){
+    var c=document.createElementNS(NS,"circle");
+    c.setAttribute("cx",n.x);c.setAttribute("cy",n.y);
+    c.setAttribute("r",idx===seedIdx?9:5.5);
+    c.setAttribute("class","node"+(idx===seedIdx?" seed":""));
+    womSvg.appendChild(c);
+    return c;
+  });
+  /* BFS spread */
+  var speed=womMode==="designed"?260:720;
+  var prob=womMode==="designed"?0.95:0.45;
+  var visited=[seedIdx],frontier=[seedIdx],level=0,reached=1;
+  nodeEls[seedIdx].classList.add("lit");
+  function spread(){
+    if(!frontier.length)return done();
+    var next=[];
+    frontier.forEach(function(u){
+      adj[u].forEach(function(v){
+        if(visited.indexOf(v)===-1&&rnd()<prob){
+          visited.push(v);next.push(v);reached++;
+          var el=edgeEls[u+"-"+v];
+          womTimers.push(setTimeout(function(){
+            if(el)el.classList.add("lit");
+            nodeEls[v].classList.add("lit");
+          },speed*0.5));
+        }
+      });
+    });
+    frontier=next;level++;
+    if(level<10&&next.length)womTimers.push(setTimeout(spread,speed));
+    else womTimers.push(setTimeout(done,speed));
+  }
+  function done(){
+    var pct=Math.round(reached/N*100);
+    womCap.textContent=(womMode==="designed"
+      ?"Designed WOM reached "+pct+"% of the network. Why: a reward for both sender and receiver, a one-tap share unit, and seeded creators lighting up multiple clusters at once."
+      :"Accidental WOM reached "+pct+"% and stalled. Why: no incentive to pass it on, a clumsy share unit, and no seeding, so the ripple died at the edge of the first friend circle.");
+  }
+  womTimers.push(setTimeout(spread,600));
+}
+$("#womDesigned").addEventListener("click",function(){
+  womMode="designed";
+  $("#womDesigned").classList.add("on");$("#womAccidental").classList.remove("on");
+  womBuild();
+});
+$("#womAccidental").addEventListener("click",function(){
+  womMode="accidental";
+  $("#womAccidental").classList.add("on");$("#womDesigned").classList.remove("on");
+  womBuild();
+});
+$("#womReplay").addEventListener("click",womBuild);
+/* build when scrolled into view */
+var womStarted=false;
+new IntersectionObserver(function(en,obs){
+  en.forEach(function(e){if(e.isIntersecting&&!womStarted){womStarted=true;womBuild();obs.disconnect();}});
+},{threshold:0.3}).observe(womSvg);
+/* ================= WOW 5: Journalist Inbox ================= */
+var inboxDone=false;
+var inboxHints={
+  wrong1:"Corporate jargon in the subject line is a delete reflex. 'Synergistic realignment' is not news, it is a word salad with a letterhead.",
+  wrong2:"Awards nobody has heard of, with exclamation marks, from an agency address. Journalists call this the trophy spam folder.",
+  wrong3:"An 'exciting journey' is not a story. Availability is not news. What has changed in the world? That subject line cannot say."
+};
+$$("#inboxSim .email-row").forEach(function(row){
+  row.addEventListener("click",function(){
+    if(inboxDone)return;
+    var pick=row.getAttribute("data-pick");
+    if(pick==="right"){
+      inboxDone=true;
+      row.classList.add("winner");
+      $("#prReveal").classList.add("open");
+      $("#inboxHint").textContent="Correct. A number, a problem, proof of change, and an offer of access. Scroll the annotations: this is the anatomy your next release should copy.";
+      $$("#inboxSim .email-row").forEach(function(r){
+        if(r!==row&&!r.classList.contains("rejected"))r.classList.add("rejected");
+      });
+    }else{
+      row.classList.add("rejected");
+      $("#inboxHint").textContent=inboxHints[pick];
+    }
+  });
+});
+
+/* ================= WOW 6: CSR Litmus ================= */
+var csrCards=[
+  {claim:"“Since 2016, our factory has reused 80% of its process water. The figure is audited and published in our annual report every year.”",who:"Beverage manufacturer",answer:"walk",tell:"The tells: a budget trail (audited figures), longevity (running since 2016), and a link to core operations (their own factory, their own water). This is CSR as engineering, not theatre."},
+  {claim:"“This Environment Day, our leadership team planted 500 saplings with a film star. See the photos on our Instagram!”",who:"Real estate developer",answer:"talk",tell:"The tells: one-day activity timed to a hashtag holiday, celebrity optics, no maintenance plan, no follow-up reporting. Saplings photographed are not trees grown."},
+  {claim:"“Every pack sold funds one mid-day meal. The running counter is published monthly. The programme is in its ninth year.”",who:"Packaged foods brand",answer:"walk",tell:"The tells: a per-unit mechanism you can audit, monthly public reporting, and nine years of continuity. The commitment survives leadership changes and bad quarters, which is the real test."},
+  {claim:"“We stand with the planet. Our logo will be green for the rest of the month.”",who:"Fashion e-commerce platform",answer:"talk",tell:"The tells: zero budget trail, zero operational change, expiry date of one month. A recoloured logo is a mood, not a commitment. Classic greenwash grammar."},
+  {claim:"“We moved 100% of our packaging to recyclable material. The transition cost is disclosed in our investor filings, phased over three years.”",who:"FMCG major",answer:"walk",tell:"The tells: capex on the books (investor filings do not lie politely), a multi-year phased plan, and a change to the core product itself, not a side project."},
+  {claim:"“We are deeply committed to a greener tomorrow,” says the campaign, while the company publishes no reduction targets and its core product remains single-use plastic.",who:"Consumer goods company",answer:"talk",tell:"The tells: sentiment without targets, advertising spend without capex, and a core business the claim carefully avoids mentioning. When the claim and the business model disagree, believe the business model."}
+];
+var csrIdx=0,csrCorrect=0,litmusStage=$("#litmusStage"),litmusVerdict=$("#litmusVerdict"),meterNeedle=$("#meterNeedle");
+function csrRender(){
+  litmusStage.innerHTML="";
+  if(csrIdx>=csrCards.length){
+    var pct=Math.round(csrCorrect/csrCards.length*100);
+    litmusStage.innerHTML="<div class='swipe-card'><p class='claim'>Litmus complete. Your authenticity radar scored "+pct+"%.</p><p class='who'>The professional habit: before any values claim ships, ask for the budget trail, the longevity plan, and the link to core business.</p></div>";
+    litmusVerdict.innerHTML="<b>Done.</b> Carry the three tells into your next CSR review: money, years, and core business. If any one is missing, the claim is on probation.";
+    return;
+  }
+  var c=csrCards[csrIdx];
+  var card=document.createElement("div");
+  card.className="swipe-card";
+  card.innerHTML="<p class='claim'>"+c.claim+"</p><p class='who'>"+c.who+" &middot; Card "+(csrIdx+1)+" of "+csrCards.length+"</p>";
+  litmusStage.appendChild(card);
+  /* touch swipe */
+  var startX=null,curX=0;
+  card.addEventListener("pointerdown",function(e){startX=e.clientX;card.style.transition="none";card.setPointerCapture(e.pointerId);});
+  card.addEventListener("pointermove",function(e){
+    if(startX===null)return;
+    curX=e.clientX-startX;
+    card.style.transform="translateX("+curX+"px) rotate("+curX/22+"deg)";
+  });
+  function endSwipe(){
+    if(startX===null)return;
+    card.style.transition="";
+    if(curX>80){csrVote("walk");}
+    else if(curX<-80){csrVote("talk");}
+    else{card.style.transform="";}
+    startX=null;curX=0;
+  }
+  card.addEventListener("pointerup",endSwipe);
+  card.addEventListener("pointercancel",endSwipe);
+}
+function csrVote(vote){
+  if(csrIdx>=csrCards.length)return;
+  var c=csrCards[csrIdx];
+  var card=$(".swipe-card",litmusStage);
+  if(card)card.classList.add(vote==="walk"?"gone-r":"gone-l");
+  var right=vote===c.answer;
+  if(right)csrCorrect++;
+  meterNeedle.style.transform="rotate("+(c.answer==="walk"?55:-55)+"deg)";
+  litmusVerdict.innerHTML="<b>"+(right?"Correct.":"Not quite.")+" This one is "+(c.answer==="walk"?"Walk":"Talk")+".</b> "+c.tell;
+  csrIdx++;
+  setTimeout(csrRender,480);
+}
+$("#voteWalk").addEventListener("click",function(){csrVote("walk");});
+$("#voteTalk").addEventListener("click",function(){csrVote("talk");});
+csrRender();
+
+/* ================= WOW 7: Crisis Timer Game ================= */
+var crisisActions=[
+  {id:"ack",label:"Acknowledge publicly, fast and human",ideal:0},
+  {id:"hold",label:"Issue the holding statement",ideal:1},
+  {id:"align",label:"Align internally: one voice, all staff briefed",ideal:2},
+  {id:"ceo",label:"CEO statement with facts in hand",ideal:3},
+  {id:"fix",label:"Visible corrective action (recall, audit, testing)",ideal:4},
+  {id:"proof",label:"Follow-up proof: published results, third-party checks",ideal:5}
+];
+var slotNames=["Hour 0-1","Hour 1-4","Hour 4-8","Hour 8-12","Hour 12-18","Hour 18-24"];
+var placed=[],cdTimer=null,cdHours=24,crisisOver=false;
+var cardPool=$("#cardPool"),slotRow=$("#slotRow"),cdRead=$("#cdRead"),crisisResult=$("#crisisResult");
+function crisisInit(){
+  placed=[];crisisOver=false;cdHours=24;
+  crisisResult.className="crisis-result";crisisResult.innerHTML="";
+  cdRead.parentElement.classList.remove("hot");
+  cardPool.innerHTML="";slotRow.innerHTML="";
+  var shuffled=crisisActions.slice().sort(function(){return Math.random()-0.5;});
+  shuffled.forEach(function(a){
+    var b=document.createElement("button");
+    b.className="action-card";b.textContent=a.label;b.setAttribute("data-id",a.id);
+    b.addEventListener("click",function(){
+      if(crisisOver||b.disabled||placed.length>=6)return;
+      placed.push(a);b.disabled=true;renderSlots();
+    });
+    cardPool.appendChild(b);
+  });
+  renderSlots();
+  if(cdTimer)clearInterval(cdTimer);
+  cdTimer=setInterval(function(){
+    if(crisisOver)return;
+    cdHours-=0.2;
+    if(cdHours<=6)cdRead.parentElement.classList.add("hot");
+    if(cdHours<=0){cdHours=0;crisisScoreNow(true);}
+    var hh=Math.floor(cdHours),mm=Math.round((cdHours-hh)*60);
+    cdRead.textContent=hh+":"+(mm<10?"0":"")+mm;
+  },1000);
+  cdRead.textContent="24:00";
+}
+function renderSlots(){
+  slotRow.innerHTML="";
+  for(var i=0;i<6;i++){
+    (function(i){
+      var s=document.createElement("div");s.className="slot";
+      var h=document.createElement("span");h.className="slot-h";h.textContent=slotNames[i];
+      s.appendChild(h);
+      if(placed[i]){
+        var p=document.createElement("button");p.className="placed";p.textContent=placed[i].label;
+        p.addEventListener("click",function(){
+          if(crisisOver)return;
+          var a=placed.splice(i,1)[0];
+          $$(".action-card",cardPool).forEach(function(c){if(c.getAttribute("data-id")===a.id)c.disabled=false;});
+          renderSlots();
+        });
+        s.appendChild(p);
+      }
+      slotRow.appendChild(s);
+    })(i);
+  }
+}
+function crisisScoreNow(timedOut){
+  if(crisisOver)return;
+  crisisOver=true;clearInterval(cdTimer);
+  var score=0,slots=$$(".slot",slotRow);
+  placed.forEach(function(a,i){
+    var d=Math.abs(a.ideal-i);
+    if(d===0){score+=2;slots[i].classList.add("good");}
+    else if(d===1){score+=1;slots[i].classList.add("near");}
+    else slots[i].classList.add("bad");
+  });
+  var max=12,pct=Math.round(score/max*100);
+  var head=timedOut?"The 24 hours ran out. In a real crisis, the story got written without you. ":"";
+  var grade;
+  if(placed.length<6)grade=head+"You sequenced only "+placed.length+" of 6 moves. An incomplete response is a response; the public just reads it as confusion.";
+  else if(pct>=85)grade=head+"Scored "+score+"/12. Boardroom-grade sequencing. You bought time honestly, spoke with one voice, and let deeds carry the recovery.";
+  else if(pct>=55)grade=head+"Scored "+score+"/12. Survivable, but the gaps would show on television. Check where you went public before aligning, or promised proof before fixing.";
+  else grade=head+"Scored "+score+"/12. This sequence feeds the fire. Study the ideal order below and replay.";
+  crisisResult.innerHTML=grade+
+    "<br><br><b>The ideal order and why:</b> 1) Acknowledge fast, because silence lets others write your story. 2) Holding statement, which buys time honestly with a named next update. 3) Internal alignment, so no regional manager contradicts the podium. 4) CEO statement once facts exist, because the top voice spent too early has nothing left. 5) Visible corrective action, since deeds are the only fully believed press release. 6) Follow-up proof, which converts survival into recovered trust. And underneath all six sits the reservoir of goodwill: the sequence works for a brand that banked trust before the fire, and merely delays the reckoning for one that did not.";
+  crisisResult.classList.add("show");
+}
+$("#crisisScore").addEventListener("click",function(){crisisScoreNow(false);});
+$("#crisisReset").addEventListener("click",crisisInit);
+var crisisStarted=false;
+new IntersectionObserver(function(en,obs){
+  en.forEach(function(e){if(e.isIntersecting&&!crisisStarted){crisisStarted=true;crisisInit();obs.disconnect();}});
+},{threshold:0.25}).observe($("#crisisGame"));
+
+/* ================= WOW 8: Goodwill Reservoir ================= */
+var yearsOn=0,struck=false;
+function tankUpdate(){
+  var fillA=Math.min(yearsOn*12,96);
+  var fillB=Math.min(yearsOn*3,24);
+  if(struck){fillA=Math.max(fillA-55,0);fillB=Math.max(fillB-55,0);}
+  setWater("waterA",fillA);setWater("waterB",fillB);
+  $("#readA").textContent=fillA+"% goodwill";
+  $("#readB").textContent=fillB+"% goodwill";
+  var cap=$("#tankCaption");
+  if(struck){
+    cap.textContent=fillA>0
+      ?"Crisis drained both tanks by the same amount. Brand A still has "+fillA+"% to operate from: media gives benefit of the doubt, customers wait for the comeback. Brand B is at "+fillB+"%: every statement now starts from zero credibility. Same crisis, different survivors. That is the Unit II creative anchor doing its quietest, most valuable work."
+      :"Both tanks hit empty. Even Brand A ran dry, a reminder that a shallow history of value communication buys you weeks, not months. Toggle more years and strike again.";
+  }else{
+    cap.textContent=yearsOn===0
+      ?"Fill the years first. Brand A deposits values every year; Brand B captures only a trickle from its offers."
+      :yearsOn+" year"+(yearsOn>1?"s":"")+" of deposits made. Brand A banks 12% per year of consistent value communication; Brand B manages 3% because offers create transactions, not trust. Now press the crisis button.";
+  }
+}
+function setWater(id,pct){
+  var el=$("#"+id);
+  var maxH=152,h=maxH*pct/100;
+  el.setAttribute("height",h);
+  el.setAttribute("y",166-h);
+}
+$$("#yearToggles .yr").forEach(function(y){
+  y.addEventListener("click",function(){
+    y.classList.toggle("on");
+    yearsOn=$$("#yearToggles .yr.on").length;
+    struck=false;
+    tankUpdate();
+  });
+});
+$("#strikeBtn").addEventListener("click",function(){struck=true;tankUpdate();});
+tankUpdate();
+
+/* ================= WOW 9: Sponsorship Radar ================= */
+var radar=$("#radar"),radarCtx=radar.getContext("2d");
+var radarLabels=["Audience fit","Association","Activation","Exclusivity","Memorability"];
+var sIds=["s1","s2","s3","s4","s5"];
+function radarVals(){return sIds.map(function(id){return parseInt($("#"+id).value,10);});}
+function drawRadar(){
+  var dpr=window.devicePixelRatio||1;
+  var w=radar.clientWidth,h=radar.clientHeight||300;
+  radar.width=w*dpr;radar.height=h*dpr;
+  radarCtx.setTransform(dpr,0,0,dpr,0,0);
+  radarCtx.clearRect(0,0,w,h);
+  var cx=w/2,cy=h/2+6,R=Math.min(w,h)/2-42;
+  var vals=radarVals(),n=5;
+  function pt(i,r){
+    var a=-Math.PI/2+i*2*Math.PI/n;
+    return [cx+r*Math.cos(a),cy+r*Math.sin(a)];
+  }
+  /* grid rings */
+  radarCtx.strokeStyle="rgba(107,30,35,.18)";radarCtx.lineWidth=1;
+  for(var ring=1;ring<=5;ring++){
+    radarCtx.beginPath();
+    for(var i=0;i<=n;i++){var p=pt(i%n,R*ring/5);i===0?radarCtx.moveTo(p[0],p[1]):radarCtx.lineTo(p[0],p[1]);}
+    radarCtx.stroke();
+  }
+  /* spokes + labels */
+  radarCtx.fillStyle="#5C4438";radarCtx.font="600 11px Inter, sans-serif";
+  for(i=0;i<n;i++){
+    var pe=pt(i,R);
+    radarCtx.beginPath();radarCtx.moveTo(cx,cy);radarCtx.lineTo(pe[0],pe[1]);radarCtx.stroke();
+    var pl=pt(i,R+22);
+    radarCtx.textAlign=pl[0]<cx-8?"right":(pl[0]>cx+8?"left":"center");
+    radarCtx.fillText(radarLabels[i],pl[0],pl[1]+4);
+  }
+  /* value polygon */
+  radarCtx.beginPath();
+  for(i=0;i<=n;i++){var pv=pt(i%n,R*vals[i%n]/10);i===0?radarCtx.moveTo(pv[0],pv[1]):radarCtx.lineTo(pv[0],pv[1]);}
+  radarCtx.closePath();
+  radarCtx.fillStyle="rgba(212,160,23,.35)";radarCtx.fill();
+  radarCtx.strokeStyle="#6B1E23";radarCtx.lineWidth=2.5;radarCtx.stroke();
+  for(i=0;i<n;i++){
+    var pd=pt(i,R*vals[i]/10);
+    radarCtx.beginPath();radarCtx.arc(pd[0],pd[1],4,0,7);radarCtx.fillStyle="#6B1E23";radarCtx.fill();
+  }
+  scVerdictUpd(vals);
+}
+function scVerdictUpd(vals){
+  var avg=vals.reduce(function(a,b){return a+b;})/5;
+  var min=Math.min.apply(null,vals);
+  var weakest=radarLabels[vals.indexOf(min)].toLowerCase();
+  var v;
+  if(avg>=8)v="Sign the cheque, then over-invest in activation: a property this strong is wasted on a logo-only deal.";
+  else if(avg>=6.5)v="Negotiable yes. The shape is healthy, but your weakest dimension, "+weakest+", is where the deal will underdeliver. Fix it in the contract, not after.";
+  else if(avg>=5)v="Only with a plan. At this score the property will not carry you; your activation budget must. Rule of thumb: match every sponsorship rupee with an activation rupee.";
+  else v="Walk away. Reach alone is seducing you. A weak fit sponsorship is renting a crowd that came for someone else.";
+  $("#scVerdict").textContent=v;
+}
+sIds.forEach(function(id,idx){
+  $("#"+id).addEventListener("input",function(){
+    $("#o"+(idx+1)).textContent=this.value;
+    drawRadar();
+  });
+});
+function setSliders(vals){
+  vals.forEach(function(v,i){$("#"+sIds[i]).value=v;$("#o"+(i+1)).textContent=v;});
+  drawRadar();
+}
+$("#presetIPL").addEventListener("click",function(){
+  this.classList.add("on");$("#presetFest").classList.remove("on");
+  setSliders([8,6,9,3,7]);
+});
+$("#presetFest").addEventListener("click",function(){
+  this.classList.add("on");$("#presetIPL").classList.remove("on");
+  setSliders([7,8,7,8,6]);
+});
+drawRadar();
+
+/* ================= Studio ================= */
+var stepIdx=0,panels=$$(".step-panel"),dots=$$("#stepDots .sdot");
+function goStep(i){
+  if(i<0||i>4)return;
+  stepIdx=i;
+  panels.forEach(function(p){p.classList.toggle("show",parseInt(p.getAttribute("data-panel"),10)===i);});
+  dots.forEach(function(d,di){
+    d.classList.toggle("on",di===i);
+    d.classList.toggle("done",di<i);
+  });
+  $("#stepBack").disabled=i===0;
+  $("#stepNext").disabled=i===4;
+  $("#stepNext").textContent=i===3?"Generate →":"Next →";
+  if(i===4)buildOnePager();
+  var shell=$(".studio-shell");
+  var navH=$("#topnav").offsetHeight+20;
+  var top=shell.getBoundingClientRect().top+window.pageYOffset-navH;
+  window.scrollTo({top:top,behavior:"smooth"});
+}
+$("#stepNext").addEventListener("click",function(){goStep(stepIdx+1);});
+$("#stepBack").addEventListener("click",function(){goStep(stepIdx-1);});
+dots.forEach(function(d){d.addEventListener("click",function(){goStep(parseInt(d.getAttribute("data-step"),10));});});
+$$(".suggest button").forEach(function(b){
+  b.addEventListener("click",function(){$("#stBrand").value=b.getAttribute("data-fill");});
+});
+function esc(s){
+  return (s||"").replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");
+}
+function val(id,fallback){
+  var v=$("#"+id).value.trim();
+  return esc(v)||("<i style='color:#999;'>"+fallback+"</i>");
+}
+function buildOnePager(){
+  var html=
+  "<div class='op-head'><div><h3>"+val("stBrand","Brand not named yet")+" &middot; Promotion Plan &amp; Crisis Note</h3>"+
+  "<p style='font-size:12px;color:#777;'>Prepared in the Design &amp; Defend Studio &middot; Learn with Dinesh Sir &middot; Unit IV</p></div>"+
+  "<span class='op-badge'>द</span></div>"+
+  "<h5>Business goal</h5><p>"+esc($("#stGoal").value)+"</p>"+
+  "<h5>The mechanic</h5><p>"+val("stMech","Mechanic not designed yet")+"</p>"+
+  "<h5>Shareability blueprint</h5><p><b>Trigger:</b> "+esc($("#stTrigger").value)+" &nbsp;&middot;&nbsp; <b>Share unit:</b> "+val("stUnit","not set")+" &nbsp;&middot;&nbsp; <b>Amplifier:</b> "+val("stAmp","not set")+"</p>"+
+  "<h5>Integration with advertising</h5><p>"+val("stIntegrate","Integration story not written yet")+"</p>"+
+  "<h5>Stress test</h5>"+
+  "<p><b>Operational risks:</b> "+val("stRisk1","not assessed")+"</p>"+
+  "<p><b>Who could feel cheated:</b> "+val("stRisk2","not assessed")+"</p>"+
+  "<p><b>The ASCI view:</b> "+val("stRisk3","not assessed")+"</p>"+
+  "<div class='op-split'></div>"+
+  "<h3 style='color:#6B1E23;'>Part Two: Crisis-Handling Note</h3>"+
+  "<h5>Holding statement (pre-drafted)</h5><p style='border-left:3px solid #D4A017;padding-left:12px;'>"+val("stHold","Holding statement not drafted")+"</p>"+
+  "<h5>First three actions, hour one</h5><ol><li>"+val("stAct1","not set")+"</li><li>"+val("stAct2","not set")+"</li><li>"+val("stAct3","not set")+"</li></ol>"+
+  "<h5>Spokesperson</h5><p>"+esc($("#stSpoke").value)+"</p>"+
+  "<h5>Goodwill assets to invoke</h5><p>"+val("stAssets","Reservoir not audited yet")+"</p>"+
+  "<p style='margin-top:16px;font-size:11px;color:#999;border-top:1px solid #eee;padding-top:8px;'>Design and Defend capstone &middot; grounded in Belch and Belch, Kotler and Keller, the ASCI Code, and the Consumer Protection Act 2019.</p>";
+  $("#onepager").innerHTML=html;
+}
+function exportDocHtml(){
+  return "<!DOCTYPE html><html><head><meta charset='utf-8'><meta name='viewport' content='width=device-width, initial-scale=1'><title>Design and Defend Deliverable</title>"+
+  "<style>body{font-family:Georgia,serif;max-width:800px;margin:30px auto;padding:0 20px;color:#2E1B16;}h3{color:#6B1E23;}h5{color:#6B1E23;font-family:Arial,sans-serif;font-size:11px;letter-spacing:.14em;text-transform:uppercase;margin:16px 0 4px;}p,li{font-size:14px;line-height:1.6;}.op-head{border-bottom:3px solid #6B1E23;padding-bottom:12px;margin-bottom:16px;display:flex;justify-content:space-between;}.op-badge{font-size:26px;color:#D4A017;border:2px solid #D4A017;border-radius:50%;width:48px;height:48px;display:flex;align-items:center;justify-content:center;}.op-split{border-top:2px dashed #D4A017;margin:20px 0;}</style>"+
+  "</head><body>"+$("#onepager").innerHTML+"</body></html>";
+}
+function toast(msg){
+  var t=$("#toast");
+  if(!t)return;
+  t.textContent=msg;
+  t.classList.add("show");
+  clearTimeout(t._hideT);
+  t._hideT=setTimeout(function(){t.classList.remove("show");},2600);
+}
+$("#btnPrint").addEventListener("click",function(){
+  buildOnePager();
+  var w=window.open("","_blank");
+  if(!w){toast("Please allow pop-ups, or use Copy or Download instead.");return;}
+  w.document.write(exportDocHtml());
+  w.document.close();
+});
+$("#btnCopy").addEventListener("click",function(){
+  buildOnePager();
+  var text=$("#onepager").innerText;
+  function done(){toast("Brief copied. Paste it anywhere.");}
+  function fail(){toast("Could not copy. Try Download as HTML instead.");}
+  if(navigator.clipboard&&navigator.clipboard.writeText){
+    navigator.clipboard.writeText(text).then(done,fail);
+  }else{
+    try{
+      var ta=document.createElement("textarea");
+      ta.value=text;ta.style.position="fixed";ta.style.opacity="0";
+      document.body.appendChild(ta);ta.select();
+      document.execCommand("copy");ta.remove();done();
+    }catch(e){fail();}
+  }
+});
+$("#btnDownload").addEventListener("click",function(){
+  buildOnePager();
+  try{
+    var blob=new Blob([exportDocHtml()],{type:"text/html"});
+    var a=document.createElement("a");
+    a.href=URL.createObjectURL(blob);
+    a.download="design-and-defend-onepager.html";
+    document.body.appendChild(a);a.click();
+    setTimeout(function(){URL.revokeObjectURL(a.href);a.remove();},400);
+    toast("Downloaded.");
+  }catch(e){toast("Download failed. Try Copy my brief instead.");}
+});
+
+/* ---------- Redraw on resize / orientation ---------- */
+var rsz;
+window.addEventListener("resize",function(){
+  clearTimeout(rsz);
+  rsz=setTimeout(function(){drawSim();drawRadar();},180);
+});
+window.addEventListener("orientationchange",function(){
+  setTimeout(function(){drawSim();drawRadar();},300);
+});
+})();
+</script>
+</body>
+</html>
